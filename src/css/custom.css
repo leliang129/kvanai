@@ -1,0 +1,99 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #1b5fc2;
+  --ifm-color-primary-dark: #174ea4;
+  --ifm-color-primary-darker: #13408a;
+  --ifm-color-primary-darkest: #0f316b;
+  --ifm-color-primary-light: #2a6fd6;
+  --ifm-color-primary-lighter: #3a7ce2;
+  --ifm-color-primary-lightest: #518df0;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --terminal-bg: #f8fbff;
+  --terminal-border: rgba(15, 49, 107, 0.12);
+  --terminal-fg: #1f2937;
+  --terminal-fg-muted: rgba(15, 31, 61, 0.7);
+  --terminal-fg-strong: #0f172a;
+  --terminal-header: rgba(15, 31, 61, 0.8);
+  --terminal-title: #0f1f3d;
+  --terminal-shadow: 0 20px 45px rgba(15, 31, 61, 0.1);
+  --terminal-button-default: rgba(148, 163, 184, 0.5);
+  --terminal-prompt: #0f62fe;
+  --terminal-user: #16a34a;
+  --terminal-badge-primary-border: rgba(16, 185, 129, 0.35);
+  --terminal-badge-primary-bg: rgba(16, 185, 129, 0.12);
+  --terminal-badge-primary-text: #0f9d58;
+  --terminal-badge-secondary-border: rgba(251, 191, 36, 0.4);
+  --terminal-badge-secondary-bg: rgba(251, 191, 36, 0.15);
+  --terminal-badge-secondary-text: #b45309;
+  --terminal-step-bg: rgba(15, 31, 61, 0.08);
+  --terminal-step-fg: #0f1f3d;
+  --terminal-note-icon-border: rgba(27, 95, 194, 0.35);
+  --terminal-note-icon-fg: rgba(27, 95, 194, 0.8);
+  --terminal-meta: rgba(71, 85, 105, 0.85);
+  --terminal-link: #0ea5e9;
+  --terminal-link-hover: #0284c7;
+  --hero-console-footer-bg: rgba(12, 28, 65, 0.03);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --ifm-color-primary: #58a6ff;
+  --ifm-color-primary-dark: #438fee;
+  --ifm-color-primary-darker: #377ed6;
+  --ifm-color-primary-darkest: #2761a7;
+  --ifm-color-primary-light: #7cb9ff;
+  --ifm-color-primary-lighter: #98c8ff;
+  --ifm-color-primary-lightest: #bddbff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --terminal-bg:
+    radial-gradient(circle at top, rgba(26, 86, 219, 0.18), transparent 55%),
+    #050d1f;
+  --terminal-border: rgba(79, 209, 197, 0.25);
+  --terminal-fg: #dbeafe;
+  --terminal-fg-muted: rgba(226, 232, 240, 0.65);
+  --terminal-fg-strong: #f4f7ff;
+  --terminal-header: #cbd5f5;
+  --terminal-title: #e2e8f0;
+  --terminal-shadow: 0 25px 55px rgba(4, 10, 25, 0.55);
+  --terminal-button-default: #334155;
+  --terminal-prompt: rgba(125, 211, 252, 0.95);
+  --terminal-user: #34d399;
+  --terminal-badge-primary-border: rgba(74, 222, 128, 0.6);
+  --terminal-badge-primary-bg: rgba(74, 222, 128, 0.12);
+  --terminal-badge-primary-text: #4ade80;
+  --terminal-badge-secondary-border: rgba(251, 191, 36, 0.55);
+  --terminal-badge-secondary-bg: rgba(251, 191, 36, 0.12);
+  --terminal-badge-secondary-text: #facc15;
+  --terminal-step-bg: rgba(255, 255, 255, 0.18);
+  --terminal-step-fg: #f8fafc;
+  --terminal-note-icon-border: rgba(59, 130, 246, 0.5);
+  --terminal-note-icon-fg: rgba(219, 234, 254, 0.9);
+  --terminal-meta: rgba(148, 163, 184, 0.8);
+  --terminal-link: #7dd3fc;
+  --terminal-link-hover: #bae6fd;
+  --hero-console-footer-bg: rgba(255, 255, 255, 0.08);
+}
+
+.heroShadow {
+  box-shadow: 0 25px 80px rgba(16, 40, 88, 0.25);
+}
+
+.section-title {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--ifm-color-primary);
+}
+
+.section-subtitle {
+  color: #6b7280;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}

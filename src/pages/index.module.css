@@ -1,0 +1,395 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  padding: 5rem 0 6rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-bottom: 1px solid rgba(15, 49, 107, 0.08);
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.heroHeadline {
+  font-size: clamp(2.5rem, 4vw, 3.75rem);
+  font-weight: 800;
+  color: #0f1f3d;
+}
+
+.heroSubtitle {
+  color: #4b5563;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 1rem 0 2rem;
+}
+
+.heroMetrics {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.heroEyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  color: #111827;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f1f3d;
+}
+
+.metricLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+}
+
+.heroConsole {
+  margin-top: 2.5rem;
+  border-radius: 18px;
+  border: 1px solid var(--terminal-border);
+  background: var(--terminal-bg);
+  color: var(--terminal-fg);
+  box-shadow: var(--terminal-shadow);
+  overflow: hidden;
+}
+
+.consoleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid rgba(15, 49, 107, 0.12);
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  color: var(--terminal-header);
+}
+
+.consoleStatus {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--terminal-badge-primary-text);
+}
+
+.consoleBody {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.consoleLine {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+.consolePrompt {
+  color: var(--terminal-user);
+  font-weight: 700;
+}
+
+.consoleCommand {
+  margin: 0;
+  font-weight: 600;
+  color: var(--terminal-title);
+}
+
+.consoleResult {
+  margin: 0.2rem 0 0;
+  color: var(--terminal-fg-muted);
+  font-size: 0.9rem;
+}
+
+.consoleFooter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  padding: 1rem 1.5rem 1.4rem;
+  background: var(--hero-console-footer-bg);
+}
+
+.detailLabel {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terminal-meta);
+  margin-bottom: 0.2rem;
+}
+
+.detailValue {
+  font-size: 1.05rem;
+  color: var(--terminal-fg-strong);
+  margin: 0;
+  font-weight: 600;
+}
+
+.panelStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.terminalCard {
+  border-radius: 18px;
+  border: 1px solid var(--terminal-border);
+  background: var(--terminal-bg);
+  color: var(--terminal-fg);
+  box-shadow: var(--terminal-shadow);
+  overflow: hidden;
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+.terminalHeader {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--terminal-border);
+  text-transform: lowercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: var(--terminal-header);
+}
+
+.terminalButtons {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.terminalButtons span {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--terminal-button-default);
+}
+
+.terminalButtons span:nth-child(1) {
+  background: #f87171;
+}
+
+.terminalButtons span:nth-child(2) {
+  background: #facc15;
+}
+
+.terminalButtons span:nth-child(3) {
+  background: #34d399;
+}
+
+.terminalTitle {
+  text-align: center;
+  font-weight: 600;
+  color: var(--terminal-title);
+}
+
+.terminalBody {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.promptLine {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--terminal-prompt);
+}
+
+.promptUser {
+  color: var(--terminal-user);
+  font-weight: 600;
+}
+
+.statusCard,
+.incidentCard,
+.noteCard,
+.quickCard {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.statusBadge {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--terminal-badge-primary-border);
+  color: var(--terminal-badge-primary-text);
+  background: var(--terminal-badge-primary-bg);
+}
+
+.badgeSecondary {
+  background: var(--terminal-badge-secondary-bg);
+  border-color: var(--terminal-badge-secondary-border);
+  color: var(--terminal-badge-secondary-text);
+}
+
+.statusList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.statusList div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.statusList dt {
+  font-size: 0.8rem;
+  color: var(--terminal-fg-muted);
+}
+
+.statusList dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--terminal-fg-strong);
+}
+
+.incidentList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.incidentList li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.stepIndex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--terminal-step-bg);
+  color: var(--terminal-step-fg);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.sectionAlt {
+  background: #f5f7fb;
+}
+
+.sectionHeading {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  margin-bottom: 1rem;
+}
+
+.noteGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.noteIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--terminal-note-icon-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--terminal-note-icon-fg);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.noteMeta {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--terminal-meta);
+}
+
+.noteDescription {
+  color: var(--terminal-fg);
+  line-height: 1.6;
+}
+
+.cardLink {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--terminal-link);
+}
+
+.cardLink:hover {
+  color: var(--terminal-link-hover);
+}
+
+.quickCard a {
+  font-weight: 600;
+  color: var(--terminal-link);
+}
+
+.quickCard a:hover {
+  color: var(--terminal-link-hover);
+}
+
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+
+  .heroGrid {
+    text-align: center;
+  }
+
+  .heroMetrics {
+    justify-content: center;
+  }
+}
