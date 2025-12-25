@@ -52,56 +52,56 @@ const domainNotes = [
     title: "Kubernetes",
     meta: "deploy / diagnose / rollback",
     description: "以「故障→复盘→runbook」方式沉淀集群与业务的关键路径。",
-    link: "/docs/platform/kubernetes",
+    link: "/ops/kubernetes",
     icon: "K8",
   },
   {
     title: "Prometheus",
     meta: "metrics / alerts / promql",
     description: "告警不止“响”，还要可执行：分层、抑制、可观测闭环。",
-    link: "/docs/observability/prometheus",
+    link: "/ops/prometheus",
     icon: "PM",
   },
   {
     title: "DevOps",
     meta: "ci/cd / release / postmortem",
     description: "把发布当作流水线：可追溯、可回滚、可量化、可复盘。",
-    link: "/docs/automation/devops",
+    link: "/ops/devops",
     icon: "DO",
   },
   {
     title: "Shell",
     meta: "one-liners / net / logs",
     description: "现场最有用的工具箱：切片日志、提炼关键信息、定位瓶颈。",
-    link: "/docs/automation/shell/intro",
+    link: "/ops/shell",
     icon: "SH",
   },
   {
     title: "Python",
     meta: "automation / api / parsing",
     description: "脚本工程化：重试、并发、可配置与测试，支撑长期维护。",
-    link: "/docs/automation/python/intro",
+    link: "/ops/python",
     icon: "PY",
   },
   {
     title: "Database",
     meta: "mysql / postgres / redis",
     description: "备份恢复、性能调优与高可用策略，保障核心数据稳定。",
-    link: "/docs/data/database",
+    link: "/ops/database",
     icon: "DB",
   },
   {
     title: "Docker",
     meta: "registry / build / runtime",
     description: "镜像管理、构建优化与运行时安全，为集群基础设施打底。",
-    link: "/docs/automation/devops",
+    link: "/ops/docker",
     icon: "DK",
   },
   {
     title: "AI Ops",
     meta: "llm / agent / anomaly",
     description: "引入 AI 助手与异常检测，加速 Runbook 生成与告警分析。",
-    link: "/docs/automation/devops",
+    link: "/docs/kb-next",
     icon: "AI",
   },
 ];
@@ -120,17 +120,17 @@ function HomepageHeader(): ReactNode {
               {siteConfig.title.toLowerCase()}
               <span className={styles.heroHeadlineAccent}>.runbooks</span>
             </Heading>
-            <pre className={styles.heroCodeBlock}>
-              <code>
-                <span className={styles.heroCodeComment}>
-                  {"// "}
-                  {siteConfig.tagline}
-                </span>
-                {"\n"}
-                {"focus: [kubernetes, observability, automation]\n"}
-                {"next:  open /docs/intro\n"}
-              </code>
-            </pre>
+    <pre className={styles.heroCodeBlock}>
+      <code>
+        <span className={styles.heroCodeComment}>
+          {"// "}
+          {siteConfig.tagline}
+        </span>
+        {"\n"}
+        {"focus: [kubernetes, observability, automation]\n"}
+        {"next:  open /docs/kb-next\n"}
+      </code>
+    </pre>
             <div className={styles.heroActions}>
               <Link
                 className={clsx(
@@ -138,7 +138,7 @@ function HomepageHeader(): ReactNode {
                   styles.heroActionButton,
                   styles.heroActionPrimary,
                 )}
-                to="/docs/intro"
+                to="/docs/kb-next"
               >
                 open /docs
               </Link>
@@ -290,7 +290,7 @@ function SectionTitle({
 export default function Home(): ReactNode {
   return (
     <Layout
-      title="OpsTrack · 运维工程师工作记录"
+      title="Kvanai · 运维工程师工作记录"
       description="记录 Kubernetes、Prometheus、DevOps、Shell、Python、数据库等运维工程师知识与工作日志"
     >
       <HomepageHeader />

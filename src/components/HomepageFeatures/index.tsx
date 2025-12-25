@@ -30,7 +30,7 @@ const FeatureList: FeatureItem[] = [
         以及常见 控制平面组件的巡检清单。
       </>
     ),
-    link: "/docs/platform/kubernetes",
+    link: "/ops/kubernetes",
     linkLabel: "查看巡检手册",
   },
   {
@@ -42,7 +42,7 @@ const FeatureList: FeatureItem[] = [
         Prometheus 联邦 配置，及时准备感知系统运行状况。
       </>
     ),
-    link: "/docs/observability/prometheus",
+    link: "/ops/prometheus",
     linkLabel: "搭建监控",
   },
   {
@@ -54,7 +54,7 @@ const FeatureList: FeatureItem[] = [
         Playbook，提升运维交付效率。
       </>
     ),
-    link: "/docs/automation/devops",
+    link: "/ops/devops",
     linkLabel: "设计流水线",
   },
 ];

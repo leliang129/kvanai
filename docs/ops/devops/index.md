@@ -22,8 +22,8 @@ sidebar_position: 1
 
 也可以分别查看：
 
-- [Shell 工具箱](/docs/automation/shell/intro)
-- [Python 自动化](/docs/automation/python/intro)
+- [Shell 工具箱](/ops/shell)
+- [Python 自动化](/ops/python)
 
 ```bash
 #!/usr/bin/env bash
@@ -61,4 +61,3 @@ print(cur.fetchone())
 - Terraform、Crossplane 管理基础设施。
 - Ansible、SaltStack 做配置统一。
 - Argo Workflows 处理批处理/数据任务。
-

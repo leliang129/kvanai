@@ -5,9 +5,9 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: "OpsTrack",
+  title: "kvanai",
   tagline: "记录运维工程师的集群巡检、可观测与自动化实践",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.svg",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -15,7 +15,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: "https://ops-track.example.com",
+  url: "https://www.kvanai.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",
@@ -36,16 +36,17 @@ const config: Config = {
   },
 
   presets: [
-    [
-      "classic",
-      {
-        docs: {
-          path: "docs/kb",
-          sidebarPath: "./sidebars.ts",
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/ops-labs/ops-website/tree/main/",
-        },
+	    [
+	      "classic",
+	      {
+	        docs: {
+	          path: "docs/kb-next",
+	          routeBasePath: "docs/kb-next",
+	          sidebarPath: "./sidebars.ts",
+	          // Please change this to your repo.
+	          // Remove this to remove the "edit this page" links.
+	          // editUrl: "https://github.com/ops-labs/ops-website/tree/main/",
+	        },
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -54,7 +55,7 @@ const config: Config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/ops-labs/ops-website/tree/main/",
+          // editUrl: "https://github.com/ops-labs/ops-website/tree/main/",
           // Useful options to enforce blogging best practices
           onInlineTags: "warn",
           onInlineAuthors: "warn",
@@ -75,7 +76,17 @@ const config: Config = {
         path: "docs/ops",
         routeBasePath: "ops",
         sidebarPath: "./sidebars.ops.ts",
-        editUrl: "https://github.com/ops-labs/ops-website/tree/main/",
+        // editUrl: "https://github.com/ops-labs/ops-website/tree/main/",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "journal",
+        path: "docs/journal",
+        routeBasePath: "docs/journal",
+        sidebarPath: "./sidebars.journal.ts",
+        // editUrl: "https://github.com/ops-labs/ops-website/tree/main/",
       },
     ],
   ],
@@ -87,15 +98,16 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "OPS NOTES",
+      title: "kvanni@notes",
       logo: {
-        alt: "OpsTrack Logo",
-        src: "img/logo.svg",
+        alt: "KVANAI Logo",
+        src: "img/logo-mark-light.svg",
+        srcDark: "img/logo-mark-dark.svg",
       },
       items: [
         {
           type: "docSidebar",
-          sidebarId: "opsSidebar",
+          sidebarId: "kbSidebar",
           position: "left",
           label: "知识库",
         },
@@ -157,6 +169,7 @@ const config: Config = {
         },
         {
           type: "docSidebar",
+          docsPluginId: "journal",
           sidebarId: "journalSidebar",
           label: "工作日志",
           position: "left",
@@ -174,18 +187,14 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "知识库",
-          items: [
-            {
-              label: "指南概览",
-              to: "/docs/intro",
-            },
-            {
-              label: "巡检手册",
-              to: "/docs/platform/kubernetes",
-            },
-          ],
-        },
+	          title: "知识库",
+	          items: [
+	            {
+	              label: "指南概览",
+	              to: "/docs/kb-next",
+	            },
+	          ],
+	        },
         {
           title: "工具 & 社区",
           items: [
@@ -217,7 +226,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `版权所有 © ${new Date().getFullYear()} OpsTrack · 运维工程师日志`,
+      copyright: `版权所有 © ${new Date().getFullYear()} Kvanai · 运维工程师日志`,
     },
     prism: {
       theme: prismThemes.github,
