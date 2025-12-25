@@ -20,6 +20,11 @@ sidebar_position: 1
 
 ## Shell/Python 工具片段
 
+也可以分别查看：
+
+- [Shell 工具箱](/docs/automation/shell/intro)
+- [Python 自动化](/docs/automation/python/intro)
+
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail

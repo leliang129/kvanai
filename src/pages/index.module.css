@@ -10,8 +10,8 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: #fff;
-  border-bottom: 1px solid rgba(15, 49, 107, 0.08);
+  background: var(--ifm-background-color);
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .heroGrid {
@@ -21,23 +21,58 @@
   align-items: center;
 }
 
-.heroHeadline {
-  font-size: clamp(2.5rem, 4vw, 3.75rem);
-  font-weight: 800;
-  color: #0f1f3d;
+.heroPrompt {
+  margin: 0 0 0.75rem;
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--terminal-header);
 }
 
-.heroSubtitle {
-  color: #4b5563;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  margin: 1rem 0 2rem;
+.heroPromptUser {
+  color: var(--terminal-user);
+  font-weight: 700;
+}
+
+.heroHeadline {
+  margin: 0;
+  font-size: clamp(2.1rem, 3.6vw, 3.1rem);
+  font-weight: 850;
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  color: var(--terminal-title);
+  letter-spacing: -0.03em;
+}
+
+.heroHeadlineAccent {
+  color: var(--terminal-prompt);
+}
+
+.heroCodeBlock {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  border: 1px dashed var(--terminal-border);
+  background: var(--hero-console-footer-bg);
+  color: var(--terminal-fg);
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.heroCodeBlock code {
+  display: block;
+}
+
+.heroCodeComment {
+  color: var(--terminal-meta);
 }
 
 .heroMetrics {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.25rem;
 }
 
 .heroActions {
@@ -46,31 +81,62 @@
   gap: 1rem;
 }
 
-.heroEyebrow {
-  font-size: 0.85rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #6b7280;
-  margin-bottom: 0.75rem;
+.heroActionButton:global(.button) {
+  border-radius: 14px;
+  border: 1px solid var(--terminal-border);
+  background: var(--terminal-bg);
+  color: var(--terminal-title);
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  box-shadow: 0 16px 30px rgba(15, 31, 61, 0.1);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
-.metric {
+.heroActionButton:global(.button):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 42px rgba(15, 31, 61, 0.14);
+  color: var(--terminal-link-hover);
+}
+
+.heroActionPrimary:global(.button) {
+  background: linear-gradient(
+      135deg,
+      rgba(27, 95, 194, 0.18),
+      transparent 65%
+    ),
+    var(--terminal-bg);
+  border-color: rgba(27, 95, 194, 0.35);
+}
+
+.stat {
+  border-radius: 16px;
+  border: 1px solid var(--terminal-border);
+  background: var(--terminal-bg);
+  box-shadow: 0 18px 40px rgba(15, 31, 61, 0.08);
+  padding: 0.95rem 1.1rem;
   display: flex;
   flex-direction: column;
-  color: #111827;
+  gap: 0.35rem;
 }
 
-.metricValue {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #0f1f3d;
-}
-
-.metricLabel {
-  font-size: 0.85rem;
+.statLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #6b7280;
+  color: var(--terminal-meta);
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+.statValue {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--terminal-fg-strong);
+  font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
 .heroConsole {
@@ -88,7 +154,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid rgba(15, 49, 107, 0.12);
+  border-bottom: 1px solid var(--terminal-border);
   font-family: "JetBrains Mono", "SFMono-Regular", Menlo, Consolas, monospace;
   font-size: 0.9rem;
   color: var(--terminal-header);
@@ -315,7 +381,7 @@
 }
 
 .sectionAlt {
-  background: #f5f7fb;
+  background: var(--ifm-color-emphasis-100);
 }
 
 .sectionHeading {
@@ -364,21 +430,6 @@
   color: var(--terminal-link-hover);
 }
 
-.quickCard a {
-  font-weight: 600;
-  color: var(--terminal-link);
-}
-
-.quickCard a:hover {
-  color: var(--terminal-link-hover);
-}
-
-.quickGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.25rem;
-}
-
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 3rem 1.5rem;
@@ -390,6 +441,6 @@
   }
 
   .heroMetrics {
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   }
 }

@@ -40,6 +40,7 @@ const config: Config = {
       "classic",
       {
         docs: {
+          path: "docs/kb",
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -66,6 +67,19 @@ const config: Config = {
     ],
   ],
 
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "ops",
+        path: "docs/ops",
+        routeBasePath: "ops",
+        sidebarPath: "./sidebars.ops.ts",
+        editUrl: "https://github.com/ops-labs/ops-website/tree/main/",
+      },
+    ],
+  ],
+
   themeConfig: {
     // Replace with your project's social card
     image: "img/docusaurus-social-card.jpg",
@@ -87,24 +101,73 @@ const config: Config = {
         },
         {
           type: "dropdown",
-          label: "领域",
+          label: "运维",
           position: "left",
           items: [
-            { to: "/docs/platform/kubernetes", label: "Kubernetes" },
-            { to: "/docs/observability/prometheus", label: "Prometheus" },
-            { to: "/docs/automation/devops", label: "DevOps" },
-            { to: "/docs/automation/devops", label: "Shell" },
-            { to: "/docs/automation/devops", label: "Python" },
-            { to: "/docs/data/database", label: "Database" },
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
+              sidebarId: "dockerSidebar",
+              label: "Docker",
+            },
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
+              sidebarId: "devopsSidebar",
+              label: "DevOps",
+            },
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
+              sidebarId: "databaseSidebar",
+              label: "Database",
+            },
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
+              sidebarId: "kubernetesSidebar",
+              label: "Kubernetes",
+            },
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
+              sidebarId: "prometheusSidebar",
+              label: "Prometheus",
+            },
           ],
         },
-        { to: "/blog", label: "工作日志", position: "left" },
-        { to: "/about", label: "关于", position: "left" },
         {
-          href: "https://github.com/ops-labs/ops-website",
-          label: "GitHub ↗",
-          position: "right",
+          type: "dropdown",
+          label: "脚本",
+          position: "left",
+          items: [
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
+              sidebarId: "shellSidebar",
+              label: "Shell概览",
+            },
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
+              sidebarId: "pythonSidebar",
+              label: "Python概览",
+            },
+          ],
         },
+        {
+          type: "docSidebar",
+          sidebarId: "journalSidebar",
+          label: "工作日志",
+          position: "left",
+        },
+        // { to: "/about", label: "关于", position: "left" },
+        { to: "/nav", label: "常用网站", position: "right" },
+        // {
+        //   to: "https://github.com/ops-labs/ops-website",
+        //   label: "GitHub",
+        //   position: "right",
+        // },
       ],
     },
     footer: {
@@ -145,7 +208,7 @@ const config: Config = {
           items: [
             {
               label: "工作日志",
-              to: "/blog",
+              to: "/docs/journal",
             },
             {
               label: "GitHub",

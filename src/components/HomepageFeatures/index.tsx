@@ -12,6 +12,14 @@ type FeatureItem = {
   linkLabel: string;
 };
 
+function toTerminalTitle(input: string): string {
+  const firstToken = input.split(/[+/&]/)[0]?.trim() ?? input;
+  return firstToken
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 const FeatureList: FeatureItem[] = [
   {
     title: "生产级巡检",
@@ -31,7 +39,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         从指标、日志到追踪的三栈方案，沉淀告警模板、SLO 仪表盘与多集群
-        Prometheus 联邦 配置。
+        Prometheus 联邦 配置，及时准备感知系统运行状况。
       </>
     ),
     link: "/docs/observability/prometheus",
@@ -58,17 +66,34 @@ function Feature({
   link,
   linkLabel,
 }: FeatureItem) {
+  const terminalTitle = toTerminalTitle(highlight) || "docs";
   return (
     <div className={clsx("col col--4")}>
       <div className={styles.featureCard}>
-        <div className={styles.featureIcon}>
-          {highlight.slice(0, 2).toUpperCase()}
+        <div className={styles.featureHeader}>
+          <div className={styles.terminalButtons}>
+            <span />
+            <span />
+            <span />
+          </div>
+          <span className={styles.featureTitle}>{terminalTitle}</span>
+          <span className={styles.featureIcon}>
+            {highlight.slice(0, 2).toUpperCase()}
+          </span>
         </div>
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-        <Link className={styles.featureLink} to={link}>
-          {linkLabel} →
-        </Link>
+        <div className={styles.featureBody}>
+          <p className={styles.promptLine}>
+            <span className={styles.promptUser}>kvanni@notes</span> ~/docs % open{" "}
+            {terminalTitle}
+          </p>
+          <Heading as="h3" className={styles.featureHeading}>
+            {title}
+          </Heading>
+          <p className={styles.featureDescription}>{description}</p>
+          <Link className={styles.featureLink} to={link}>
+            {linkLabel} →
+          </Link>
+        </div>
       </div>
     </div>
   );

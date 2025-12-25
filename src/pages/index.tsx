@@ -73,14 +73,14 @@ const domainNotes = [
     title: "Shell",
     meta: "one-liners / net / logs",
     description: "现场最有用的工具箱：切片日志、提炼关键信息、定位瓶颈。",
-    link: "/docs/automation/devops",
+    link: "/docs/automation/shell/intro",
     icon: "SH",
   },
   {
     title: "Python",
     meta: "automation / api / parsing",
     description: "脚本工程化：重试、并发、可配置与测试，支撑长期维护。",
-    link: "/docs/automation/devops",
+    link: "/docs/automation/python/intro",
     icon: "PY",
   },
   {
@@ -106,49 +106,6 @@ const domainNotes = [
   },
 ];
 
-const quickAccess = [
-  {
-    title: "Kubernetes",
-    description: "诊断链路、资源调优、部署回滚、常见故障处理。",
-    link: "/docs/platform/kubernetes",
-  },
-  {
-    title: "Prometheus",
-    description: "指标设计、告警分层、PromQL 速查、容量与保留策略。",
-    link: "/docs/observability/prometheus",
-  },
-  {
-    title: "DevOps",
-    description: "CI/CD 策略、变更窗口、值班与复盘模板。",
-    link: "/docs/automation/devops",
-  },
-  {
-    title: "Shell 工具箱",
-    description: "grep/awk/sed、网络排障、日志切片与常用 one-liner。",
-    link: "/docs/automation/devops",
-  },
-  {
-    title: "Python 自动化",
-    description: "日志处理、API 调用、并发与重试、脚本工程化。",
-    link: "/docs/automation/devops",
-  },
-  {
-    title: "Database",
-    description: "MySQL/PostgreSQL/Redis 巡检、备份、容量与 HA。",
-    link: "/docs/data/database",
-  },
-  {
-    title: "Docker",
-    description: "镜像仓库、构建流程、运行时安全与最佳实践。",
-    link: "/docs/automation/devops",
-  },
-  {
-    title: "AI Ops",
-    description: "LLM Agent、异常检测与自动生成 Runbook 的探索。",
-    link: "/docs/automation/devops",
-  },
-];
-
 function HomepageHeader(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -156,39 +113,62 @@ function HomepageHeader(): ReactNode {
       <div className="container">
         <div className={styles.heroGrid}>
           <div>
-            <p className={styles.heroEyebrow}>OPS CONSOLE / RUNBOOKS / NOTES</p>
+            <p className={styles.heroPrompt}>
+              <span className={styles.heroPromptUser}>kvanni@notes</span> ~/home %
+            </p>
             <Heading as="h1" className={styles.heroHeadline}>
-              {siteConfig.title} · 运维工程师实战记录
+              {siteConfig.title.toLowerCase()}
+              <span className={styles.heroHeadlineAccent}>.runbooks</span>
             </Heading>
-            <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
+            <pre className={styles.heroCodeBlock}>
+              <code>
+                <span className={styles.heroCodeComment}>
+                  {"// "}
+                  {siteConfig.tagline}
+                </span>
+                {"\n"}
+                {"focus: [kubernetes, observability, automation]\n"}
+                {"next:  open /docs/intro\n"}
+              </code>
+            </pre>
             <div className={styles.heroActions}>
               <Link
-                className="button button--secondary button--lg"
+                className={clsx(
+                  "button button--secondary button--lg",
+                  styles.heroActionButton,
+                  styles.heroActionPrimary,
+                )}
                 to="/docs/intro"
               >
-                进入知识库
+                open /docs
               </Link>
-              <Link className="button button--outline button--lg" to="/blog">
-                查看工作日志
+              <Link
+                className={clsx(
+                  "button button--outline button--lg",
+                  styles.heroActionButton,
+                )}
+                to="/docs/journal"
+              >
+                open /journal
               </Link>
             </div>
             <div className={styles.heroMetrics}>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>120+</span>
-                <span className={styles.metricLabel}>Playbooks</span>
+              <div className={styles.stat}>
+                <span className={styles.statLabel}>playbooks</span>
+                <span className={styles.statValue}>120+</span>
               </div>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>45</span>
-                <span className={styles.metricLabel}>监控仪表盘</span>
+              <div className={styles.stat}>
+                <span className={styles.statLabel}>dashboards</span>
+                <span className={styles.statValue}>45</span>
               </div>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>15</span>
-                <span className={styles.metricLabel}>自动化流水线</span>
+              <div className={styles.stat}>
+                <span className={styles.statLabel}>pipelines</span>
+                <span className={styles.statValue}>15</span>
               </div>
             </div>
             <div className={styles.heroConsole}>
               <div className={styles.consoleHeader}>
-                <span>ops@notes ~/console</span>
+                <span>kvanni@notes ~/console</span>
                 <span className={styles.consoleStatus}>RUNNING</span>
               </div>
               <div className={styles.consoleBody}>
@@ -339,52 +319,13 @@ export default function Home(): ReactNode {
                   </div>
                   <div className={styles.terminalBody}>
                     <p className={styles.promptLine}>
-                      <span className={styles.promptUser}>ops@notes</span> ~ %
+                      <span className={styles.promptUser}>kvanni@notes</span> ~ %
                       open {note.title.toLowerCase()}
                     </p>
                     <p className={styles.noteMeta}>{note.meta}</p>
                     <p className={styles.noteDescription}>{note.description}</p>
                     <Link className={styles.cardLink} to={note.link}>
                       打开笔记 →
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className={clsx(styles.section, styles.sectionAlt)}>
-          <div className="container">
-            <SectionTitle
-              title="快速入口"
-              subtitle="常用巡检路线"
-              summary="用几条常见路径快速进入完整知识库，缩短从发现到执行的距离。"
-            />
-            <div className={styles.quickGrid}>
-              {quickAccess.map((item) => (
-                <div
-                  key={item.title}
-                  className={clsx(styles.quickCard, styles.terminalCard)}
-                >
-                  <div className={styles.terminalHeader}>
-                    <div className={styles.terminalButtons}>
-                      <span />
-                      <span />
-                      <span />
-                    </div>
-                    <span className={styles.terminalTitle}>
-                      {item.title.toLowerCase()}
-                    </span>
-                  </div>
-                  <div className={styles.terminalBody}>
-                    <p className={styles.promptLine}>
-                      <span className={styles.promptUser}>ops@routes</span>{" "}
-                      ~/jump % docs {item.title.toLowerCase()}
-                    </p>
-                    <p className={styles.noteDescription}>{item.description}</p>
-                    <Link className={styles.cardLink} to={item.link}>
-                      打开 /docs →
                     </Link>
                   </div>
                 </div>
