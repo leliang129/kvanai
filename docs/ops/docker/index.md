@@ -1,39 +1,32 @@
 ---
+title: Docker 专题
 sidebar_position: 1
+slug: /docker
 ---
 
-# Docker 专题
+面向运维场景的 Docker 知识整理：镜像构建、仓库分发、Compose 编排、运行时资源治理、网络与存储排障。
 
-面向运维场景的 Docker 知识整理：镜像构建、仓库管理、运行时排障与安全基线。
+## 推荐阅读路径
 
-## 镜像构建
+1. 先通读：[`docker-intro`](/ops/docker/docker-intro)
+2. 常用命令与运维动作：[`docker-image`](/ops/docker/docker-image)
+3. 镜像构建与可追溯：[`docker-build-image`](/ops/docker/docker-build-image)
+4. 多容器编排：[`docker-compose`](/ops/docker/docker-compose)
+5. 资源限制与 OOM 排查：[`docker-resource`](/ops/docker/docker-resource)
+6. 监控与告警落地：[`docker-monitor`](/ops/docker/docker-monitor)
 
-- 优先使用多阶段构建（multi-stage）减小镜像体积
-- 使用 BuildKit / Buildx 开启缓存与并行
-- 固定依赖版本，避免「今天能构建、明天不行」
-
-## 仓库与分发
-
-- 私有仓库（Harbor / Registry）权限与审计
-- 镜像同步与加速：按业务优先级做白名单镜像列表
-- Tag 策略：`<app>:<semver>-<gitsha>`（可追溯可回滚）
-
-## 运行时排障
+## 运维速查
 
 ```bash
-# 容器资源与进程
+# 资源与日志
 docker stats
-docker top <container>
+docker logs -f <container>
+
+# 磁盘
+docker system df
+docker system prune -a
+
+# 网络
+docker network ls
+docker network inspect <net>
 ```
-
-```bash
-# 快速定位网络/DNS
-docker exec -it <container> sh -lc 'cat /etc/resolv.conf; nslookup kubernetes.default.svc'
-```
-
-## 安全与基线
-
-- 最小权限：非 root、只读文件系统、drop capabilities
-- 镜像扫描：Trivy/Grype + CI 阶段阻断高危
-- 运行时加固：seccomp/apparmor（或迁移到 K8s PSP/PodSecurity）
-
