@@ -1,18 +1,48 @@
 #!/usr/bin/env bash
 set -uo pipefail
 
-# ===============================
-# 必需环境变量（敏感信息）
-# ===============================
-: "${SRC_REPO:?必须设置 SRC_REPO，例如 docker.io/library}"
-: "${DEST_REPO:?必须设置 DEST_REPO，例如 registry.example.com/base}"
+# =========================================
+# 通用安全镜像同步脚本（企业共享版）
+# =========================================
 
-: "${SRC_USER:?必须设置 SRC_USER}"
-: "${SRC_PASSWORD:?必须设置 SRC_PASSWORD}"
+# -------------------------------
+# SHA256 校验提示
+# -------------------------------
+EXPECTED_SHA="填写官方 SHA256 校验值"
+SCRIPT_URL="https://secure.example.com/sync_images_shared_secure.sh"
 
-: "${DEST_USER:?必须设置 DEST_USER}"
-: "${DEST_PASSWORD:?必须设置 DEST_PASSWORD}"
+# 可选：自动校验自身 SHA（如果想自动化可以启用）
+# CURRENT_SHA=$(sha256sum "$0" | awk '{print $1}')
+# if [ "$CURRENT_SHA" != "$EXPECTED_SHA" ]; then
+#   echo "❌ 脚本校验失败，请确认脚本来源安全"
+#   exit 1
+# fi
 
+# -------------------------------
+# 必需环境变量
+# -------------------------------
+REQUIRED_VARS=(SRC_REPO DEST_REPO SRC_USER SRC_PASSWORD DEST_USER DEST_PASSWORD)
+echo "🔑 本脚本使用以下必需环境变量，请确认已设置："
+for VAR in "${REQUIRED_VARS[@]}"; do
+    if [ -z "${!VAR:-}" ]; then
+        echo "   ⚠️ 未设置：$VAR"
+    else
+        echo "   ✅ 已设置：$VAR"
+    fi
+done
+echo ""
+
+# 校验环境变量完整性
+for VAR in "${REQUIRED_VARS[@]}"; do
+    if [ -z "${!VAR:-}" ]; then
+        echo "❌ 必需环境变量 $VAR 未设置，退出脚本"
+        exit 1
+    fi
+done
+
+# -------------------------------
+# 参数校验
+# -------------------------------
 IMAGE_FILE="${1:?必须传入镜像列表文件}"
 
 if [ ! -f "$IMAGE_FILE" ]; then
@@ -23,24 +53,24 @@ fi
 FAILED_FILE="failed_images.txt"
 : > "$FAILED_FILE"
 
-echo "🚀 开始镜像同步"
+echo "🚀 开始镜像同步（安全共享版）"
 echo "📄 镜像列表：$IMAGE_FILE"
 echo "📦 源仓库：$SRC_REPO"
 echo "🎯 目标仓库：$DEST_REPO"
 echo ""
 
-# ===============================
-# 登录源仓库（一次）
-# ===============================
+# -------------------------------
+# 登录源仓库
+# -------------------------------
 echo "🔐 登录源仓库：$SRC_REPO"
 if ! echo "$SRC_PASSWORD" | docker login "$SRC_REPO" -u "$SRC_USER" --password-stdin; then
   echo "❌ 登录源仓库失败"
   exit 1
 fi
 
-# ===============================
-# 主循环（失败继续）
-# ===============================
+# -------------------------------
+# 主循环
+# -------------------------------
 while IFS= read -r IMAGE || [ -n "$IMAGE" ]; do
 
   IMAGE="$(echo "$IMAGE" | xargs)"
@@ -53,9 +83,7 @@ while IFS= read -r IMAGE || [ -n "$IMAGE" ]; do
   echo "======================================"
   echo "📦 处理镜像：$IMAGE"
 
-  # -------------------------------
   # pull
-  # -------------------------------
   echo "⬇️  Pull：$SRC_IMAGE"
   if ! docker pull "$SRC_IMAGE"; then
     echo "❌ Pull 失败：$SRC_IMAGE"
@@ -63,9 +91,7 @@ while IFS= read -r IMAGE || [ -n "$IMAGE" ]; do
     continue
   fi
 
-  # -------------------------------
   # retag
-  # -------------------------------
   echo "🏷️  Retag：$DEST_IMAGE"
   if ! docker tag "$SRC_IMAGE" "$DEST_IMAGE"; then
     echo "❌ Retag 失败：$IMAGE"
@@ -74,9 +100,7 @@ while IFS= read -r IMAGE || [ -n "$IMAGE" ]; do
     continue
   fi
 
-  # -------------------------------
-  # 登录目标仓库（按你要求：在 push 前）
-  # -------------------------------
+  # 登录目标仓库
   echo "🔐 登录目标仓库：$DEST_REPO"
   if ! echo "$DEST_PASSWORD" | docker login "$DEST_REPO" -u "$DEST_USER" --password-stdin; then
     echo "❌ 登录目标仓库失败"
@@ -85,9 +109,7 @@ while IFS= read -r IMAGE || [ -n "$IMAGE" ]; do
     continue
   fi
 
-  # -------------------------------
   # push
-  # -------------------------------
   echo "⬆️  Push：$DEST_IMAGE"
   if ! docker push "$DEST_IMAGE"; then
     echo "❌ Push 失败：$DEST_IMAGE"
@@ -96,9 +118,7 @@ while IFS= read -r IMAGE || [ -n "$IMAGE" ]; do
     continue
   fi
 
-  # -------------------------------
   # cleanup
-  # -------------------------------
   echo "🧹 清理本地镜像"
   docker rmi "$SRC_IMAGE" "$DEST_IMAGE" || true
 
@@ -106,9 +126,9 @@ while IFS= read -r IMAGE || [ -n "$IMAGE" ]; do
 
 done < "$IMAGE_FILE"
 
-# ===============================
+# -------------------------------
 # 汇总
-# ===============================
+# -------------------------------
 echo ""
 echo "🎉 镜像同步完成"
 
