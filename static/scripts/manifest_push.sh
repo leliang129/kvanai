@@ -13,7 +13,11 @@ DEST_REPO="${DEST_REPO:-swr.cn-east-3.myhuaweicloud.com/laozhongshi}"
 usage() {
   cat <<'EOF'
 用法:
+  export DEST_REPO=127.0.0.1:5000/syncimage
+  本地执行：
   ./manifest_push.sh <src_image> <dest_image>
+  远程执行：
+  curl -fsSL https://example.com/manifest_push.sh | bash -s -- busybox:latest busybox:latest
 
 说明:
   - 默认会使用 amd64/arm64 两个架构
