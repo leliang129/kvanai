@@ -41,6 +41,66 @@ for VAR in "${REQUIRED_VARS[@]}"; do
 done
 
 # -------------------------------
+# Docker 环境检查
+# -------------------------------
+echo "🐳 检查 Docker 环境..."
+if ! command -v docker &> /dev/null; then
+    echo "⚠️  Docker 命令未找到，开始自动安装..."
+    echo "📥 正在下载并安装 Docker..."
+
+    if curl -fsSL https://get.docker.com | bash -s docker; then
+        echo "✅ Docker 安装成功"
+
+        # 再次检查 Docker 是否可用
+        if ! command -v docker &> /dev/null; then
+            echo "❌ Docker 安装后仍无法使用，请检查安装或手动重启终端"
+            exit 1
+        fi
+
+        # 检查 Docker 服务是否运行
+        if ! docker info &> /dev/null; then
+            echo "⚠️  Docker 服务未运行，尝试启动..."
+            if command -v systemctl &> /dev/null; then
+                sudo systemctl start docker
+                sudo systemctl enable docker
+            elif command -v service &> /dev/null; then
+                sudo service docker start
+            else
+                echo "❌ 无法启动 Docker 服务，请手动启动：sudo systemctl start docker"
+                exit 1
+            fi
+        fi
+    else
+        echo "❌ Docker 安装失败，请手动安装 Docker"
+        exit 1
+    fi
+else
+    echo "✅ Docker 命令已存在"
+
+    # 检查 Docker 服务是否运行
+    if ! docker info &> /dev/null; then
+        echo "⚠️  Docker 服务未运行，尝试启动..."
+        if command -v systemctl &> /dev/null; then
+            sudo systemctl start docker
+        elif command -v service &> /dev/null; then
+            sudo service docker start
+        else
+            echo "❌ 无法启动 Docker 服务，请手动启动：sudo systemctl start docker"
+            exit 1
+        fi
+
+        # 再次检查服务状态
+        if ! docker info &> /dev/null; then
+            echo "❌ Docker 服务启动失败，请检查系统配置"
+            exit 1
+        fi
+    fi
+fi
+
+echo "🐳 Docker 环境检查完成"
+echo ""
+
+# -------------------------------
 # 参数校验
 # -------------------------------
 IMAGE_FILE="${1:?必须传入镜像列表文件}"
