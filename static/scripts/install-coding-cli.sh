@@ -31,6 +31,7 @@ err() { echo -e "${RED}[ERROR]${NC} $1"; }
 auto_update=false
 interval=""
 STATUS_SUMMARY=()
+ACTION_HINTS=()
 
 usage() {
   cat <<'USAGE'
@@ -165,10 +166,18 @@ check_tool() {
   local name="$1"
   local cmd="$2"
   local pkg="$3"
+  local pkg_env_var=""
   local status="未知"
   local installed=""
   local latest=""
   local cmp=""
+  if [[ "$name" == "Gemini" ]]; then
+    pkg_env_var="GEMINI_NPM_PACKAGE"
+  elif [[ "$name" == "Claude" ]]; then
+    pkg_env_var="CLAUDE_NPM_PACKAGE"
+  elif [[ "$name" == "Codex" ]]; then
+    pkg_env_var="CODEX_NPM_PACKAGE"
+  fi
 
   if command_exists "$cmd"; then
     installed=$(get_installed_version "$cmd")
@@ -241,11 +250,26 @@ check_tool() {
   fi
 
   STATUS_SUMMARY+=("$name: $status")
+
+  if [[ "$status" == "需要更新" || "$status" == "仍需更新" ]]; then
+    if [[ -n "$pkg" ]]; then
+      ACTION_HINTS+=("$name: 需要更新，运行 --auto-update 或手动执行: npm install -g $pkg")
+    else
+      ACTION_HINTS+=("$name: 需要更新，但未检测到 npm 包名，可先设置 $pkg_env_var 后再运行 --auto-update")
+    fi
+  elif [[ "$status" == "未安装" || "$status" == "安装失败" ]]; then
+    if [[ -n "$pkg" ]]; then
+      ACTION_HINTS+=("$name: 未安装，运行 --auto-update 或手动执行: npm install -g $pkg")
+    else
+      ACTION_HINTS+=("$name: 未安装，未检测到 npm 包名，可先设置 $pkg_env_var 后再运行 --auto-update")
+    fi
+  fi
 }
 
 run_check() {
   info "Checking coding CLIs..."
   STATUS_SUMMARY=()
+  ACTION_HINTS=()
 
   local claude_cmd="${CLAUDE_CMD:-claude}"
   local codex_cmd="${CODEX_CMD:-codex}"
@@ -269,6 +293,13 @@ run_check() {
   for item in "${STATUS_SUMMARY[@]}"; do
     echo "  - $item"
   done
+
+  if [[ ${#ACTION_HINTS[@]} -gt 0 ]]; then
+    info "Next steps:"
+    for item in "${ACTION_HINTS[@]}"; do
+      echo "  - $item"
+    done
+  fi
 
   info "Done."
 }
