@@ -26,7 +26,7 @@ sidebar_position: 7
 
 ```bash
 SAN_LIST="192.168.0.130 buildkitd localhost 127.0.0.1" BASE_DIR=/root/.certs \
-  curl -fsSL https://docs.kvanai.com/static/scripts/gen-buildkit-certs.sh | bash
+  curl -fsSL https://docs.kvanai.com/scripts/gen-buildkit-certs.sh | bash
 ```
 
 生成后目录结构：
@@ -44,7 +44,7 @@ SAN_LIST="192.168.0.130 buildkitd localhost 127.0.0.1" BASE_DIR=/root/.certs \
 
 ```bash
 CERT_DIR=/root/.certs/daemon \
-  curl -fsSL https://docs.kvanai.com/static/scripts/install-buildkitd.sh | bash
+  curl -fsSL https://docs.kvanai.com/scripts/install-buildkitd.sh | bash
 ```
 
 默认监听 `tcp://0.0.0.0:1234`。
@@ -64,14 +64,14 @@ scp -r root@192.168.0.130:/root/.certs/client ./client
 
 ```bash
 CLIENT_CERT_DIR=./client SERVER_NAME=192.168.0.130 \
-  curl -fsSL https://docs.kvanai.com/static/scripts/builder-append-node.sh | bash -s -- \
+  curl -fsSL https://docs.kvanai.com/scripts/builder-append-node.sh | bash -s -- \
   create multi-remote tcp://192.168.0.130:1234
 ```
 
 若要追加节点（多机构建）：
 ```bash
 CLIENT_CERT_DIR=./client SERVER_NAME=192.168.0.130 \
-  curl -fsSL https://docs.kvanai.com/static/scripts/builder-append-node.sh | bash -s -- \
+  curl -fsSL https://docs.kvanai.com/scripts/builder-append-node.sh | bash -s -- \
   append multi-remote tcp://192.168.0.130:1234
 ```
 
@@ -97,6 +97,6 @@ docker logs buildkitd --tail 200
 
 ## 脚本列表（线上地址）
 
-- 生成证书：`https://docs.kvanai.com/static/scripts/gen-buildkit-certs.sh`
-- 启动 buildkitd：`https://docs.kvanai.com/static/scripts/install-buildkitd.sh`
-- 创建 / 追加 builder：`https://docs.kvanai.com/static/scripts/builder-append-node.sh`
+- 生成证书：`https://docs.kvanai.com/scripts/gen-buildkit-certs.sh`
+- 启动 buildkitd：`https://docs.kvanai.com/scripts/install-buildkitd.sh`
+- 创建 / 追加 builder：`https://docs.kvanai.com/scripts/builder-append-node.sh`
