@@ -9,7 +9,7 @@ PORT="1234"
 
 # 数据目录
 DATA_DIR="${DATA_DIR:-/var/lib/buildkit}"
-CERT_DIR="${CERT_DIR:-$PWD/.certs/daemon}"
+CERT_DIR="${CERT_DIR:-$HOME/.certs/daemon}"
 
 # ========= 检查 =========
 if ! command -v docker >/dev/null 2>&1; then

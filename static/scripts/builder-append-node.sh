@@ -4,7 +4,7 @@ set -euo pipefail
 # ===== 基本变量 =====
 DEFAULT_BUILDER="multi-remote"
 DEFAULT_DRIVER="remote"
-CLIENT_CERT_DIR="${CLIENT_CERT_DIR:-$PWD/.certs/client}"
+CLIENT_CERT_DIR="${CLIENT_CERT_DIR:-$HOME/.certs/client}"
 SERVER_NAME="${SERVER_NAME:-buildkitd}"
 
 # ===== 函数 =====

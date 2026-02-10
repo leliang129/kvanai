@@ -4,10 +4,10 @@ set -euo pipefail
 # 生成 BuildKit 远程驱动 TLS 证书（CA / Server / Client）
 # 使用官方 BuildKit create-certs bake 定义（基于 mkcert）
 # 用法:
-#   SAN_LIST="192.168.0.130 buildkitd localhost 127.0.0.1" BASE_DIR=/root/.certs ./gen-buildkit-certs.sh
+#   SAN_LIST="192.168.0.130 buildkitd localhost 127.0.0.1" BASE_DIR=$HOME/.certs ./gen-buildkit-certs.sh
 #   ./gen-buildkit-certs.sh
 
-BASE_DIR="${BASE_DIR:-/root/.certs}"
+BASE_DIR="${BASE_DIR:-$HOME/.certs}"
 SAN_LIST="${SAN_LIST:-}"
 SAN_CLIENT="${SAN_CLIENT:-client}"
 BAKE_REF="${BAKE_REF:-https://github.com/moby/buildkit.git#master:examples/create-certs}"
@@ -16,12 +16,12 @@ if [[ -z "$SAN_LIST" ]]; then
   read -rp "请输入 SAN（空格分隔，例如：192.168.0.130 buildkitd localhost 127.0.0.1）: " SAN_LIST
 fi
 if [[ -z "$SAN_LIST" ]]; then
-  echo "❌ SAN_LIST is required"
+  echo "❌ SAN_LIST 不能为空"
   exit 1
 fi
 
 if ! docker buildx version >/dev/null 2>&1; then
-  echo "❌ docker buildx not available"
+  echo "❌ 未检测到 docker buildx"
   exit 1
 fi
 
