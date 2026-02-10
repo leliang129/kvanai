@@ -25,8 +25,9 @@ sidebar_position: 7
 > SAN 请包含 **远端 IP**（例如 192.168.0.130）和可用的 DNS/主机名。
 
 ```bash
-SAN_LIST="192.168.0.130 buildkitd localhost 127.0.0.1" BASE_DIR=/root/.certs \
-  curl -fsSL https://docs.kvanai.com/scripts/gen-buildkit-certs.sh | bash
+curl -fsSL https://docs.kvanai.com/scripts/gen-buildkit-certs.sh | \
+  SAN_LIST="192.168.0.130 buildkitd localhost 127.0.0.1" \
+  BASE_DIR=/root/.certs bash
 ```
 
 生成后目录结构：
@@ -43,8 +44,8 @@ SAN_LIST="192.168.0.130 buildkitd localhost 127.0.0.1" BASE_DIR=/root/.certs \
 > 依赖 `/root/.certs/daemon` 中的证书。
 
 ```bash
-CERT_DIR=/root/.certs/daemon \
-  curl -fsSL https://docs.kvanai.com/scripts/install-buildkitd.sh | bash
+curl -fsSL https://docs.kvanai.com/scripts/install-buildkitd.sh | \
+  CERT_DIR=/root/.certs/daemon bash
 ```
 
 默认监听 `tcp://0.0.0.0:1234`。
@@ -63,15 +64,15 @@ scp -r root@192.168.0.130:/root/.certs/client ./client
 ## 4. 本机创建 buildx 远程 builder
 
 ```bash
-CLIENT_CERT_DIR=./client SERVER_NAME=192.168.0.130 \
-  curl -fsSL https://docs.kvanai.com/scripts/builder-append-node.sh | bash -s -- \
+curl -fsSL https://docs.kvanai.com/scripts/builder-append-node.sh | \
+  CLIENT_CERT_DIR=./client SERVER_NAME=192.168.0.130 bash -s -- \
   create multi-remote tcp://192.168.0.130:1234
 ```
 
 若要追加节点（多机构建）：
 ```bash
-CLIENT_CERT_DIR=./client SERVER_NAME=192.168.0.130 \
-  curl -fsSL https://docs.kvanai.com/scripts/builder-append-node.sh | bash -s -- \
+curl -fsSL https://docs.kvanai.com/scripts/builder-append-node.sh | \
+  CLIENT_CERT_DIR=./client SERVER_NAME=192.168.0.130 bash -s -- \
   append multi-remote tcp://192.168.0.130:1234
 ```
 
