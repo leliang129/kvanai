@@ -137,6 +137,12 @@ const config: Config = {
             {
               type: "docSidebar",
               docsPluginId: "ops",
+              sidebarId: "messageQueueSidebar",
+              label: "消息队列",
+            },
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
               sidebarId: "kubernetesSidebar",
               label: "Kubernetes",
             },
