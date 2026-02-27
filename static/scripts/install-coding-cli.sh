@@ -4,6 +4,10 @@
 #   ./install-coding-cli.sh                 # run once
 #   ./install-coding-cli.sh --interval 6h   # loop every 6 hours
 #   ./install-coding-cli.sh --auto-update   # update if outdated
+# Remote (curl) usage:
+#   curl -fsSL https://docs.kvanai.com/scripts/install-coding-cli.sh | bash
+#   curl -fsSL https://docs.kvanai.com/scripts/install-coding-cli.sh | bash -s -- --auto-update
+#   curl -fsSL https://docs.kvanai.com/scripts/install-coding-cli.sh | bash -s -- --interval 6h
 #
 # Environment overrides:
 #   CLAUDE_CMD, CLAUDE_NPM_PACKAGE
@@ -140,9 +144,11 @@ install_or_update_npm() {
   if npm install -g "$pkg" >/dev/null 2>&1; then
     ok "npm install -g $pkg"
   else
-    warn "Need sudo for npm -g, retrying..."
-    sudo npm install -g "$pkg"
-    ok "sudo npm install -g $pkg"
+    warn "npm install -g failed. Avoid sudo when using nvm."
+    warn "Fix options: use nvm, or set npm prefix to a user-writable dir."
+    warn "Example: npm config set prefix \"$HOME/.npm-global\""
+    warn "Then add to PATH: export PATH=\"$HOME/.npm-global/bin:$PATH\""
+    return 1
   fi
 }
 
