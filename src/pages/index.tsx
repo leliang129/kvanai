@@ -101,7 +101,7 @@ const domainNotes = [
     title: "AI Ops",
     meta: "llm / agent / anomaly",
     description: "引入 AI 助手与异常检测，加速 Runbook 生成与告警分析。",
-    link: "/docs/kb-next",
+    link: "/docs/kb-next/openclaw/openclaw-install",
     icon: "AI",
   },
 ];
@@ -128,7 +128,7 @@ function HomepageHeader(): ReactNode {
         </span>
         {"\n"}
         {"focus: [kubernetes, observability, automation]\n"}
-        {"next:  open /docs/kb-next\n"}
+        {"next:  open /docs/kb-next/openclaw/openclaw-install\n"}
       </code>
     </pre>
             <div className={styles.heroActions}>
@@ -138,7 +138,7 @@ function HomepageHeader(): ReactNode {
                   styles.heroActionButton,
                   styles.heroActionPrimary,
                 )}
-                to="/docs/kb-next"
+                to="/docs/kb-next/openclaw/openclaw-install"
               >
                 open /docs
               </Link>

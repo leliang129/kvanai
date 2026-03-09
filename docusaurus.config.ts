@@ -194,13 +194,13 @@ const config: Config = {
       links: [
         {
 	          title: "知识库",
-	          items: [
-	            {
-	              label: "指南概览",
-	              to: "/docs/kb-next",
-	            },
-	          ],
-	        },
+		          items: [
+		            {
+		              label: "指南概览",
+		              to: "/docs/kb-next/openclaw/openclaw-install",
+		            },
+		          ],
+		        },
         {
           title: "工具 & 社区",
           items: [
