@@ -1,0 +1,11 @@
+{
+  "label": "消息队列概览",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "消息队列概览 文档索引",
+    "description": "消息队列概览 目录与文档导航"
+  }
+}

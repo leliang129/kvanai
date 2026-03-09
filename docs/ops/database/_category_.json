@@ -1,0 +1,11 @@
+{
+  "label": "数据库与存储巡检",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "数据库与存储巡检 文档索引",
+    "description": "数据库与存储巡检 目录与文档导航"
+  }
+}

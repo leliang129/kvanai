@@ -6,6 +6,10 @@ sidebar_position: 1
 
 本章节聚焦 CI/CD、GitOps 与运维脚本自动化，帮助团队将变更可视化、可审计并快速回滚。
 
+## 快速入口
+
+- [Git 命令简要说明](./git-command.md)
+
 ## CI/CD 模板
 
 - Build 阶段：Docker Buildx、Kaniko 或 BuildKit 以缓存优化。

@@ -25,7 +25,7 @@ npm -v
 ```
 
 如果未安装 Node.js，建议先参考内部文档完成环境准备：  
-[NVM 安装与使用](../opstools/nvm.md)
+[NVM 安装与使用](/docs/journal/opstools/nvm)
 
 ---
 

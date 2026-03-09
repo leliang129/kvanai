@@ -1,0 +1,11 @@
+{
+  "label": "OpenClaw",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "OpenClaw 文档索引",
+    "description": "OpenClaw 目录与文档导航"
+  }
+}

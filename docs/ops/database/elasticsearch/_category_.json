@@ -1,0 +1,11 @@
+{
+  "label": "elasticsearch",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "elasticsearch 文档索引",
+    "description": "elasticsearch 目录与文档导航"
+  }
+}

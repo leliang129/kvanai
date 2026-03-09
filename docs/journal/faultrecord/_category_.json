@@ -1,5 +1,11 @@
 {
   "label": "故障记录",
-  "position": 2
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "故障记录 文档索引",
+    "description": "故障记录 目录与文档导航"
+  }
 }
-

@@ -1,0 +1,11 @@
+{
+  "label": "mysql",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "mysql 文档索引",
+    "description": "mysql 目录与文档导航"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "label": "DevOps 与自动化流水线",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "DevOps 与自动化流水线 文档索引",
+    "description": "DevOps 与自动化流水线 目录与文档导航"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "label": "redis",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "redis 文档索引",
+    "description": "redis 目录与文档导航"
+  }
+}

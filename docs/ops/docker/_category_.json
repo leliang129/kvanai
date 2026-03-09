@@ -1,0 +1,11 @@
+{
+  "label": "Docker 运维概览",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Docker 运维概览 文档索引",
+    "description": "Docker 运维概览 目录与文档导航"
+  }
+}

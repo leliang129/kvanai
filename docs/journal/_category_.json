@@ -1,5 +1,11 @@
 {
   "label": "工作日志",
-  "position": 4
+  "position": 4,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "工作日志 文档索引",
+    "description": "工作日志 目录与文档导航"
+  }
 }
-
