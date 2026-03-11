@@ -66,7 +66,7 @@ const domainNotes = [
     title: "DevOps",
     meta: "ci/cd / release / postmortem",
     description: "把发布当作流水线：可追溯、可回滚、可量化、可复盘。",
-    link: "/ops/devops",
+    link: "/ops/devops/gitlab/gitlab-install",
     icon: "DO",
   },
   {

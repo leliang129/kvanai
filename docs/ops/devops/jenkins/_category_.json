@@ -1,0 +1,11 @@
+{
+  "label": "Jenkins 运维",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Jenkins 运维 文档索引",
+    "description": "Jenkins 安装、流水线、插件与运维文档导航"
+  }
+}

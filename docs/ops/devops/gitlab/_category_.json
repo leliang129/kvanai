@@ -1,0 +1,11 @@
+{
+  "label": "GitLab 运维",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "GitLab 运维 文档索引",
+    "description": "GitLab 安装、备份、迁移、HTTPS 与密码重置文档导航"
+  }
+}

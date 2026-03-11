@@ -54,7 +54,7 @@ const FeatureList: FeatureItem[] = [
         Playbook，提升运维交付效率。
       </>
     ),
-    link: "/ops/devops",
+    link: "/ops/devops/gitlab/gitlab-install",
     linkLabel: "设计流水线",
   },
 ];
