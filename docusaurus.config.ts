@@ -82,6 +82,15 @@ const config: Config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "automation",
+        path: "docs/automation",
+        routeBasePath: "automation",
+        sidebarPath: "./sidebars.automation.ts",
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "journal",
         path: "docs/journal",
         routeBasePath: "docs/journal",
@@ -113,20 +122,20 @@ const config: Config = {
         },
         {
           type: "dropdown",
-          label: "运维",
+          label: "云原生 & 基础设施",
           position: "left",
           items: [
             {
               type: "docSidebar",
               docsPluginId: "ops",
-              sidebarId: "dockerSidebar",
-              label: "Docker",
+              sidebarId: "linuxSidebar",
+              label: "Linux 基础",
             },
             {
               type: "docSidebar",
               docsPluginId: "ops",
-              sidebarId: "devopsSidebar",
-              label: "DevOps",
+              sidebarId: "dockerSidebar",
+              label: "Docker",
             },
             {
               type: "docSidebar",
@@ -156,18 +165,24 @@ const config: Config = {
         },
         {
           type: "dropdown",
-          label: "脚本",
+          label: "自动化 & 脚本",
           position: "left",
           items: [
             {
               type: "docSidebar",
-              docsPluginId: "ops",
+              docsPluginId: "automation",
+              sidebarId: "devopsSidebar",
+              label: "DevOps",
+            },
+            {
+              type: "docSidebar",
+              docsPluginId: "automation",
               sidebarId: "shellSidebar",
               label: "Shell概览",
             },
             {
               type: "docSidebar",
-              docsPluginId: "ops",
+              docsPluginId: "automation",
               sidebarId: "pythonSidebar",
               label: "Python概览",
             },

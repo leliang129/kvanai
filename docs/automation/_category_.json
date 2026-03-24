@@ -1,0 +1,11 @@
+{
+  "label": "自动化与脚本",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "自动化与脚本文档索引",
+    "description": "DevOps、Shell、Python 自动化脚本与工具实践"
+  }
+}

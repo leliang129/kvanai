@@ -1,0 +1,11 @@
+{
+  "label": "Linux 基础",
+  "position": 0,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Linux 基础索引",
+    "description": "Linux 基础命令、文件系统、网络与权限等运维常用知识。"
+  }
+}
