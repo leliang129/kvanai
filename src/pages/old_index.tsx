@@ -80,7 +80,7 @@ const domainNotes = [
     title: "Python",
     meta: "automation / api / parsing",
     description: "脚本工程化：重试、并发、可配置与测试，支撑长期维护。",
-    link: "/automation/python",
+    link: "/automation/python/python-script",
     icon: "PY",
   },
   {
