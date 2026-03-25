@@ -221,15 +221,15 @@ const config: Config = {
           items: [
             {
               label: "CNCF",
-              href: "https://www.cncf.io/",
+              to: "https://www.cncf.io/",
             },
             {
               label: "Prometheus Docs",
-              href: "https://prometheus.io/docs/",
+              to: "https://prometheus.io/docs/",
             },
             {
               label: "Kubernetes Docs",
-              href: "https://kubernetes.io/docs/",
+              to: "https://kubernetes.io/docs/",
             },
           ],
         },
@@ -242,7 +242,7 @@ const config: Config = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/ops-labs/ops-website",
+              to: "https://github.com/",
             },
           ],
         },
