@@ -140,7 +140,7 @@ const NAV_DATA = [
     ],
   },
   {
-    category: '软件源',
+    category: '镜像源 & 仓库',
     items: [
       {
         title: '清华源',
@@ -181,7 +181,7 @@ const NAV_DATA = [
     ],
   },
   {
-    category: '工具箱',
+    category: '在线工具 & 参考',
     items: [
       {
         title: '常用工具合集',
