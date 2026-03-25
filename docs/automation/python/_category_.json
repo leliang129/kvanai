@@ -1,11 +1,8 @@
 {
-  "label": "Python 自动化概览",
+  "label": "Python脚本",
   "position": 1,
-  "collapsible": true,
-  "collapsed": false,
   "link": {
     "type": "generated-index",
-    "title": "Python 自动化概览 文档索引",
-    "description": "Python 自动化概览 目录与文档导航"
+    "description": "Python脚本编程指南"
   }
 }

@@ -17,9 +17,9 @@ const getTheme = (isDark) => ({
 
 // --- 2. 基础组件：线稿图标 ---
 const Icon = ({ d, color }) => (
-  <svg 
-    width="20" height="20" viewBox="0 0 24 24" 
-    fill="none" stroke={color || "currentColor"} 
+  <svg
+    width="20" height="20" viewBox="0 0 24 24"
+    fill="none" stroke={color || "currentColor"}
     strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
     style={{ flexShrink: 0, marginRight: '10px' }}
   >
@@ -91,12 +91,12 @@ const DashboardContent = () => {
         .manual-item:hover { opacity: 0.6; }
         @media (max-width: 996px) { .main-grid { flex-direction: column !important; } }
       `}</style>
-      
+
       {/* 0. 顶部状态栏 Header */}
-      <header style={{ 
-        maxWidth: '1200px', margin: '0 auto', 
-        display: 'flex', justifyContent: 'space-between', 
-        padding: '30px 20px', 
+      <header style={{
+        maxWidth: '1200px', margin: '0 auto',
+        display: 'flex', justifyContent: 'space-between',
+        padding: '30px 20px',
         fontFamily: theme.mono, fontSize: '11px', opacity: 0.5
       }}>
         <div>[ Kvanai ] // 运维工程师工作记录</div>
@@ -110,15 +110,15 @@ const DashboardContent = () => {
         flexWrap: 'wrap',
         justifyContent: 'space-between',
       }}>
-        
+
         {/* 第一列: 知识库 (KNOWLEDGE BASE) */}
         <div style={columnStyle}>
           <div style={sectionHeader}>
             <span>01 / 知识库</span>
-            <span style={{opacity: 0.3}}>KNOWLEDGE</span>
+            <span style={{ opacity: 0.3 }}>KNOWLEDGE</span>
           </div>
-          
-          <div style={{display: 'flex', flexDirection: 'column', gap: '30px'}}>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '30px' }}>
             {/* 子模块: AI 助手 */}
             <section>
               <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
@@ -149,18 +149,18 @@ const DashboardContent = () => {
         <div style={{ ...columnStyle, borderLeft: `1px solid ${theme.border}`, borderRight: `1px solid ${theme.border}` }}>
           <div style={sectionHeader}>
             <span>02 / 基础设施</span>
-            <span style={{opacity: 0.3}}>标准操作程序</span>
+            <span style={{ opacity: 0.3 }}>标准操作程序</span>
           </div>
-          
-          <div style={{display:'flex', flexDirection:'column', gap:'25px'}}>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
             <section>
               <div style={{ display: 'flex', alignItems: 'center', fontSize: '13px', fontWeight: 700, marginBottom: '8px', opacity: 0.8 }}>
                 <Icon color={theme.accent} d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
                 计算单元 (COMPUTE)
               </div>
-              <div style={{paddingLeft: '30px', fontFamily: theme.mono, fontSize: '12px', display:'flex', flexDirection:'column', gap: '4px', opacity: 0.6}}>
-                <Link to="/ops/linux" style={{color:'inherit'}}>&gt; Linux 内核调优</Link>
-                <Link to="/ops/kubernetes" style={{color:'inherit'}}>&gt; Kubernetes 集群管理</Link>
+              <div style={{ paddingLeft: '30px', fontFamily: theme.mono, fontSize: '12px', display: 'flex', flexDirection: 'column', gap: '4px', opacity: 0.6 }}>
+                <Link to="/ops/linux" style={{ color: 'inherit' }}>&gt; Linux 内核调优</Link>
+                <Link to="/ops/kubernetes" style={{ color: 'inherit' }}>&gt; Kubernetes 集群管理</Link>
               </div>
             </section>
 
@@ -169,9 +169,9 @@ const DashboardContent = () => {
                 <Icon color={theme.accent} d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7M4 7c0-2 1.5-3 3.5-3h9c2 0 3.5 1 3.5 3" />
                 数据持久化 (DATA)
               </div>
-              <div style={{paddingLeft: '30px', fontFamily: theme.mono, fontSize: '12px', display:'flex', flexDirection:'column', gap: '4px', opacity: 0.6}}>
-                <Link to="/ops/database" style={{color:'inherit'}}>&gt; MySQL 高可用 / Redis 缓存</Link>
-                <Link to="/ops/message-queue" style={{color:'inherit'}}>&gt; 消息队列中间件</Link>
+              <div style={{ paddingLeft: '30px', fontFamily: theme.mono, fontSize: '12px', display: 'flex', flexDirection: 'column', gap: '4px', opacity: 0.6 }}>
+                <Link to="/ops/database" style={{ color: 'inherit' }}>&gt; MySQL 高可用 / Redis 缓存</Link>
+                <Link to="/ops/message-queue" style={{ color: 'inherit' }}>&gt; 消息队列中间件</Link>
               </div>
             </section>
 
@@ -180,8 +180,8 @@ const DashboardContent = () => {
                 <Icon color={theme.accent} d="M18 20V10M12 20V4M6 20v-6" />
                 可观测性 (OBSERVABILITY)
               </div>
-              <div style={{paddingLeft: '30px', fontFamily: theme.mono, fontSize: '12px', display:'flex', flexDirection:'column', gap: '4px', opacity: 0.6}}>
-                <Link to="/ops/prometheus" style={{color:'inherit'}}>&gt; Prometheus 监控 / Grafana 画板</Link>
+              <div style={{ paddingLeft: '30px', fontFamily: theme.mono, fontSize: '12px', display: 'flex', flexDirection: 'column', gap: '4px', opacity: 0.6 }}>
+                <Link to="/ops/prometheus" style={{ color: 'inherit' }}>&gt; Prometheus 监控 / Grafana 画板</Link>
               </div>
             </section>
           </div>
@@ -191,14 +191,14 @@ const DashboardContent = () => {
         <div style={columnStyle}>
           <div style={sectionHeader}>
             <span>03 / 自动化与日志</span>
-            <span style={{opacity: 0.3}}>运行记录</span>
+            <span style={{ opacity: 0.3 }}>运行记录</span>
           </div>
-          
-          <div style={{display:'flex', flexDirection:'column', gap:'20px'}}>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <section>
               <ManualItem theme={theme} to="/automation/devops/gitlab/gitlab-install" label="CI/CD 流水线标准" type="square" dotColor="#cf222e" />
               <ManualItem theme={theme} to="/automation/shell/one-liners" label="常用 Shell 脚本片段" type="square" dotColor="#326ce5" />
-              <ManualItem theme={theme} to="/automation/python" label="Python 自动化工程" type="square" dotColor="#e3b341" />
+              <ManualItem theme={theme} to="/automation/python/python-script" label="Python 自动化工程" type="square" dotColor="#e3b341" />
             </section>
 
             <div style={{ marginTop: '20px', padding: '15px', border: `1px dashed ${theme.border}`, borderRadius: '4px' }}>
@@ -212,10 +212,10 @@ const DashboardContent = () => {
 
       </main>
 
-      <footer style={{ 
-        maxWidth: '1200px', margin: '80px auto 0 auto', 
-        textAlign: 'center', opacity: 0.2, 
-        fontFamily: theme.mono, fontSize: '10px', letterSpacing: '0.2em' 
+      <footer style={{
+        maxWidth: '1200px', margin: '80px auto 0 auto',
+        textAlign: 'center', opacity: 0.2,
+        fontFamily: theme.mono, fontSize: '10px', letterSpacing: '0.2em'
       }}>
         始于 2026 // KVANAI // 所有系统运行正常
       </footer>
