@@ -105,7 +105,7 @@ reboot
 参考：
 
 - [GitLab 安装总览](https://docs.gitlab.com/install/)
-- [GitLab CE 安装文档](https://docs.gitlab.com/ce/install/)
+- [GitLab CE 安装文档](https://docs.gitlab.com/install/)
 
 ### 3.2.4 GitLab 安装
 
