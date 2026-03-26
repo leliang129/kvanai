@@ -9,19 +9,19 @@ title: Linux 学习路径总览
 
 ## 章节地图
 
-- [00-基础入门](./00-基础入门.md)：Linux 简介、发行版、安装环境、终端与目录结构。
-- [01-文件系统](./01-文件系统.md)：路径、文件类型、链接、inode。
-- [02-常用命令](./02-常用命令.md)：文件、查找、查看、压缩、磁盘。
-- [03-权限与用户](./03-权限与用户.md)：rwx、chmod/chown、sudo、用户组。
-- [04-文本处理](./04-文本处理.md)：grep/awk/sed/sort/uniq，管道与重定向。
-- [05-Shell编程](./05-Shell编程.md)：语法、变量、流程控制、函数、参数。
-- [06-进程与系统管理](./06-进程与系统管理.md)：ps/top/kill/后台任务/调度。
-- [07-服务管理](./07-服务管理.md)：systemctl、service、自定义 service。
-- [08-网络](./08-网络.md)：TCP/IP、curl/wget、端口连接、DNS、防火墙。
-- [09-存储与文件系统](./09-存储与文件系统.md)：挂载、分区、ext4/xfs、LVM。
-- [10-日志与排障](./10-日志与排障.md)：journalctl、服务日志、排障套路。
-- [11-安全](./11-安全.md)：账户安全、SSH、防火墙、权限、Fail2ban。
-- [12-开发环境](./12-开发环境.md)：Git、gcc/make、环境变量、apt/yum。
+- [00-基础入门](./00-linux-basics.md)：Linux 简介、发行版、安装环境、终端与目录结构。
+- [01-文件系统](./01-file-system.md)：路径、文件类型、链接、inode。
+- [02-常用命令](./02-common-commands.md)：文件、查找、查看、压缩、磁盘。
+- [03-权限与用户](./03-permissions-and-users.md)：rwx、chmod/chown、sudo、用户组。
+- [04-文本处理](./04-text-processing.md)：grep/awk/sed/sort/uniq，管道与重定向。
+- [05-Shell编程](./05-shell-programming.md)：语法、变量、流程控制、函数、参数。
+- [06-进程与系统管理](./06-process-and-system-management.md)：ps/top/kill/后台任务/调度。
+- [07-服务管理](./07-service-management.md)：systemctl、service、自定义 service。
+- [08-网络](./08-networking.md)：TCP/IP、curl/wget、端口连接、DNS、防火墙。
+- [09-存储与文件系统](./09-storage-and-file-systems.md)：挂载、分区、ext4/xfs、LVM。
+- [10-日志与排障](./10-logging-and-troubleshooting.md)：journalctl、服务日志、排障套路。
+- [11-安全](./11-security.md)：账户安全、SSH、防火墙、权限、Fail2ban。
+- [12-开发环境](./12-development-environment.md)：Git、gcc/make、环境变量、apt/yum。
 
 ## 建议学习顺序
 

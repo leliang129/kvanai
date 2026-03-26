@@ -72,16 +72,64 @@ const NAV_DATA = [
         color: '#e6522c',
       },
       {
+        title: 'Grafana',
+        desc: '可观测性仪表盘与可视化平台',
+        url: 'https://grafana.com/',
+        color: '#f59e0b',
+      },
+      {
+        title: 'VictoriaMetrics',
+        desc: '高性能时序数据库与监控存储方案',
+        url: 'https://docs.victoriametrics.com/quick-start/',
+        color: '#06b6d4',
+      },
+      {
+        title: 'Elastic Stack',
+        desc: '日志检索、分析与可视化平台',
+        url: 'https://www.elastic.co/docs/reference',
+        color: '#22c55e',
+      },
+      {
+        title: 'SkyWalking',
+        desc: '分布式追踪与应用性能监控平台',
+        url: 'https://skywalking.apache.org/',
+        color: '#8b5cf6',
+      },
+      {
+        title: 'GitLab',
+        desc: '代码托管与 CI/CD DevOps 平台',
+        url: 'https://docs.gitlab.com/',
+        color: '#fc6d26',
+      },
+      {
+        title: 'Jenkins',
+        desc: '自动化构建与持续集成服务',
+        url: 'https://www.jenkins.io/',
+        color: '#2563eb',
+      },
+      {
         title: 'Artifact Hub',
         desc: '寻找 Helm Charts',
         url: 'https://artifacthub.io',
         color: '#417598',
       },
       {
+        title: 'Docker',
+        desc: 'Docker 官方文档入口',
+        url: 'https://docs.docker.com/reference/',
+        color: '#2496ed',
+      },
+      {
         title: 'Dockerfile 参考文档',
         desc: 'Dockerfile 指令与最佳实践',
         url: 'https://deepzz.com/post/dockerfile-reference.html',
         color: '#0ea5e9',
+      },
+      {
+        title: 'Harbor',
+        desc: '企业级 OCI 镜像仓库与制品管理',
+        url: 'https://goharbor.io/',
+        color: '#2563eb',
       },
       {
         title: 'DockerCompose 生成',
@@ -200,12 +248,6 @@ const NAV_DATA = [
         desc: '命令/语法速查参考（reference）',
         url: 'https://wangchujiang.com/reference/',
         color: '#f59e0b',
-      },
-      {
-        title: '在线待办清单',
-        desc: '简单在线 ToDo 管理工具',
-        url: 'https://www.ricocc.com/todo/',
-        color: '#3b82f6',
       },
       {
         title: 'IP 测试工具',
