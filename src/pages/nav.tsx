@@ -102,6 +102,18 @@ const NAV_DATA = [
         color: '#fc6d26',
       },
       {
+        title: 'Nginx',
+        desc: 'Web 服务器与反向代理官方文档',
+        url: 'https://nginx.org/en/docs/',
+        color: '#009639',
+      },
+      {
+        title: 'Ansible',
+        desc: '自动化运维与配置管理官方文档',
+        url: 'https://docs.ansible.com/projects/ansible/latest/index.html',
+        color: '#ee0000',
+      },
+      {
         title: 'Jenkins',
         desc: '自动化构建与持续集成服务',
         url: 'https://www.jenkins.io/',
