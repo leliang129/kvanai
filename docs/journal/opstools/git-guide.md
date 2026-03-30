@@ -1,6 +1,6 @@
 ---
 title: Git使用指南
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 >本文梳理 Git 在日常项目中的常用操作、冲突排查思路以及合并与清理命令，便于快速查阅。

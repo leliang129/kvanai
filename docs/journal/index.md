@@ -9,7 +9,7 @@ sidebar_position: 0
 
 ## 目录
 
-- [运维工具索引](/docs/journal/opstools)
+- [运维工具目录（从 NVM 开始）](/docs/journal/opstools/nvm)
 - [故障记录索引](/docs/journal/faultrecord)
 
 ## 记录规范

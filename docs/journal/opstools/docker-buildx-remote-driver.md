@@ -1,6 +1,6 @@
 ---
 title: docker buildx 远程驱动器安装
-sidebar_position: 7
+sidebar_position: 6
 ---
 
 # Docker Buildx 远程驱动器安装（Remote Driver）

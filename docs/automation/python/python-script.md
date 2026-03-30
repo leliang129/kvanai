@@ -1,6 +1,6 @@
 ---
 title: python脚本
-sidebar_position: 0
+sidebar_position: 1
 ---
 
 # python常用脚本

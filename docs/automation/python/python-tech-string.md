@@ -1,6 +1,6 @@
 ---
 title: Python-字符串
-sidebar_position: 6
+sidebar_position: 8
 ---
 
 # Python 字符串使用指南

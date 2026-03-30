@@ -1,5 +1,6 @@
 ---
 title: Python-psutil模块
+sidebar_position: 29
 ---
 
 # Python psutil 模块使用

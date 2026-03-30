@@ -1,6 +1,6 @@
 ---
 title: Python-变量基础
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # Python 变量使用

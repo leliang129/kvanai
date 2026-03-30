@@ -2,10 +2,5 @@
   "label": "运维工具",
   "position": 1,
   "collapsible": true,
-  "collapsed": false,
-  "link": {
-    "type": "generated-index",
-    "title": "运维工具 文档索引",
-    "description": "运维工具 目录与文档导航"
-  }
+  "collapsed": false
 }

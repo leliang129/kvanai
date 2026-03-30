@@ -1,6 +1,6 @@
 ---
 title: nsenter命令的使用
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 ## nsenter简介

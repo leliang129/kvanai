@@ -1,5 +1,6 @@
 ---
 title: Python-re模块
+sidebar_position: 27
 ---
 
 # Python re 模块使用

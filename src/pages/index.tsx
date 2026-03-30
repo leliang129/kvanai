@@ -204,7 +204,7 @@ const DashboardContent = () => {
             <div style={{ marginTop: '20px', padding: '15px', border: `1px dashed ${theme.border}`, borderRadius: '4px' }}>
               <div style={{ fontFamily: theme.mono, fontSize: '11px', opacity: 0.4, marginBottom: '10px' }}>// 归档记录 ARCHIVE</div>
               <ManualItem theme={theme} to="/docs/journal/faultrecord" label="故障复盘记录" type="square" dotColor="#586069" />
-              <ManualItem theme={theme} to="/docs/journal/opstools" label="常用工具清单" type="square" dotColor="#586069" />
+              <ManualItem theme={theme} to="/docs/journal/opstools/nvm" label="运维工具目录" type="square" dotColor="#586069" />
               <ManualItem theme={theme} to="/nav" label="外部资源导航" type="square" dotColor="#586069" />
             </div>
           </div>

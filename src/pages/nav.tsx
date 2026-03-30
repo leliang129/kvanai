@@ -114,10 +114,10 @@ const NAV_DATA = [
         color: '#ee0000',
       },
       {
-        title: 'Jenkins',
-        desc: '自动化构建与持续集成服务',
-        url: 'https://www.jenkins.io/',
-        color: '#2563eb',
+        title: 'Jenkins Docs',
+        desc: 'Jenkins 官方文档与使用手册',
+        url: 'https://www.jenkins.io/doc/',
+        color: '#d24939',
       },
       {
         title: 'Artifact Hub',
@@ -274,24 +274,6 @@ const NAV_DATA = [
         color: '#ec4899',
       },
       {
-        title: 'OpenJDK 镜像',
-        desc: 'Adoptium OpenJDK 下载',
-        url: 'https://adoptium.net/zh-CN/',
-        color: '#1d4ed8',
-      },
-      {
-        title: 'JDK 下载站',
-        desc: '国内 JDK 下载聚合站',
-        url: 'https://www.injdk.cn/',
-        color: '#9333ea',
-      },
-      {
-        title: 'OpenJDK 镜像站',
-        desc: '清华 OpenJDK 镜像（Adoptium）',
-        url: 'https://mirrors.tuna.tsinghua.edu.cn/Adoptium/',
-        color: '#0f766e',
-      },
-      {
         title: 'Curl 转换工具',
         desc: '将 curl 转为多语言代码',
         url: 'https://curlconverter.com/',
@@ -311,6 +293,48 @@ const NAV_DATA = [
       },
     ],
   },
+  {
+    category: '软件下载',
+    items: [
+      {
+        title: 'Jenkins Download',
+        desc: 'Jenkins 安装包与历史版本下载',
+        url: 'https://get.jenkins.io/',
+        color: '#2563eb',
+      },
+      {
+        title: 'GitLab CE Packages',
+        desc: 'GitLab CE 官方软件包下载仓库',
+        url: 'https://packages.gitlab.com/gitlab/gitlab-ce',
+        color: '#fc6d26',
+      },
+      {
+        title: 'GitLab CE 清华镜像',
+        desc: '清华大学 GitLab CE 软件包镜像站',
+        url: 'https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/',
+        color: '#2563eb',
+      },
+      {
+        title: 'OpenJDK 镜像',
+        desc: 'Adoptium OpenJDK 下载',
+        url: 'https://adoptium.net/zh-CN/',
+        color: '#1d4ed8',
+      },
+      {
+        title: 'JDK 下载站',
+        desc: '国内 JDK 下载聚合站',
+        url: 'https://www.injdk.cn/',
+        color: '#9333ea',
+      },
+      {
+        title: 'OpenJDK 镜像站',
+        desc: '清华 OpenJDK 镜像（Adoptium）',
+        url: 'https://mirrors.tuna.tsinghua.edu.cn/Adoptium/',
+        color: '#0f766e',
+      },
+    ],
+  },
+
 ];
 
 export default function NavigationPage(): JSX.Element {

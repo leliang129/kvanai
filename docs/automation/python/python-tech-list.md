@@ -1,6 +1,6 @@
 ---
 title: Python-列表
-sidebar_position: 7
+sidebar_position: 9
 ---
 
 # Python 列表使用指南

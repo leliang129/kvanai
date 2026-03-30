@@ -1,6 +1,6 @@
 ---
 title: GitLab 配置 Let’s Encrypt 证书
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 本文介绍两种在 GitLab Omnibus 环境中启用 HTTPS 的方式，并以 GitLab 内置的 Let’s Encrypt 集成为推荐方案，另提供 Certbot 作为可选替代。

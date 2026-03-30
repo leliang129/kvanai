@@ -1,6 +1,6 @@
 ---
 title: kubernetes mcp server服务介绍&搭建
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 # 简要介绍

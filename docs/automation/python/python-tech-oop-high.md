@@ -1,6 +1,6 @@
 ---
 title: Python-面向对象高级
-sidebar_position: 17
+sidebar_position: 19
 ---
 
 # Python 面向对象高级特性

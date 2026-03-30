@@ -1,6 +1,6 @@
 ---
 title: Python-运算符
-sidebar_position: 2
+sidebar_position: 4
 ---
 
 # Python 运算符使用指南

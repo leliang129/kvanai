@@ -1,5 +1,6 @@
 ---
 title: Python-GitLab模块
+sidebar_position: 32
 ---
 
 # Python GitLab 模块使用指南

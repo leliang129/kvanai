@@ -1,5 +1,6 @@
 ---
 title: Python-pymysql模块
+sidebar_position: 31
 ---
 
 # Python pymysql 模块使用指南
