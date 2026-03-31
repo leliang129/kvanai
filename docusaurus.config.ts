@@ -158,6 +158,12 @@ const config: Config = {
             {
               type: "docSidebar",
               docsPluginId: "ops",
+              sidebarId: "gitopsSidebar",
+              label: "GitOps",
+            },
+            {
+              type: "docSidebar",
+              docsPluginId: "ops",
               sidebarId: "prometheusSidebar",
               label: "Prometheus",
             },

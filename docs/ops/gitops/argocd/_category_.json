@@ -1,0 +1,11 @@
+{
+  "label": "ArgoCD",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "ArgoCD 文档索引",
+    "description": "ArgoCD 目录与文档导航"
+  }
+}

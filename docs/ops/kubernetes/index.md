@@ -50,6 +50,6 @@ done
 
 ## 延伸阅读
 
+- [GitOps 文档专区](../gitops/index.md)
 - [Kubernetes 官方文档](https://kubernetes.io/docs/)
 - [CNCF Landscape](https://landscape.cncf.io/)
-

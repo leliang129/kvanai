@@ -1,0 +1,11 @@
+{
+  "label": "GitOps",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "GitOps 文档索引",
+    "description": "GitOps 目录与文档导航"
+  }
+}
