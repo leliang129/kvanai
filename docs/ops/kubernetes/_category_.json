@@ -1,11 +1,11 @@
 {
-  "label": "Kubernetes 集群巡检手册",
+  "label": "Kubernetes",
   "position": 1,
   "collapsible": true,
   "collapsed": false,
   "link": {
     "type": "generated-index",
-    "title": "Kubernetes 集群巡检手册 文档索引",
-    "description": "Kubernetes 集群巡检手册 目录与文档导航"
+    "title": "Kubernetes 文档索引",
+    "description": "Kubernetes 概念、Pod 与集群安装文档导航"
   }
 }

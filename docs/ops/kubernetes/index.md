@@ -77,11 +77,16 @@ Kubernetes（简称 K8s）是一个用于自动化部署、扩缩容和运维容
 ## 7. 学习路径建议
 
 1. 先掌握对象模型：`Pod`、`Deployment`、`Service`。
-2. 再理解调度与网络：`requests/limits`、CNI、Service/Ingress。
-3. 最后进入集群搭建与运维：kubeadm 安装、升级、备份与排障。
+2. 再理解 Pod 生命周期与资源治理：探针、重启策略、requests/limits、优雅终止。
+3. 学习工作负载控制器：ReplicaSet/Deployment、StatefulSet/DaemonSet、Job/CronJob。
+4. 最后进入集群搭建与运维：kubeadm 安装、升级、备份与排障。
 
 ## 延伸阅读
 
-- [kubeadm 搭建 Kubernetes 集群](./kubeadm.md)
+- [Pod 基础与资源清单](./pod)
+- [控制器、ReplicaSet 与 Deployment](./controller-rs-deployment)
+- [StatefulSet 与 DaemonSet](./controller-sts-daemonset)
+- [Job 与 CronJob](./job-cronjob)
+- [kubeadm 搭建 Kubernetes 集群](./kubeadm)
 - [Kubernetes 官方文档](https://kubernetes.io/docs/)
 - [CNCF Landscape](https://landscape.cncf.io/)

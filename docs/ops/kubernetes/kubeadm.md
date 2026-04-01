@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: kubeadm 搭建 Kubernetes 集群
+title: kubeadm部署k8s集群
 ---
 
 # kubeadm 搭建 Kubernetes 集群
