@@ -1,0 +1,69 @@
+# 生产环境 Application：开启自动同步 + 自愈 + 重试
+# ArgoCD Application 资源版本
+apiVersion: argoproj.io/v1alpha1
+# 资源类型：Application
+kind: Application
+metadata:
+  # 应用名称
+  name: nginx-prod
+  # Application CR 所在命名空间
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  # 绑定项目，受项目白名单与角色策略约束
+  project: platform
+
+  source:
+    # Git 仓库地址
+    repoURL: https://github.com/your-org/ops-manifests.git
+    # 分支/Tag/Commit
+    targetRevision: main
+    # 生产环境 overlay 路径
+    path: apps/nginx/overlays/prod
+
+  destination:
+    # 目标集群 API
+    server: https://kubernetes.default.svc
+    # 目标命名空间
+    namespace: prod
+
+  syncPolicy:
+    # 自动同步策略
+    automated:
+      # 清理 Git 中已删除的资源
+      prune: true
+      # 发现漂移后自动回正
+      selfHeal: true
+      # 禁止空应用（防止误删全部资源）
+      allowEmpty: false
+    # 同步失败重试策略
+    retry:
+      limit: 5
+      backoff:
+        # 首次重试等待时间
+        duration: 10s
+        # 指数退避系数
+        factor: 2
+        # 最大退避时间
+        maxDuration: 3m
+    syncOptions:
+      # 自动创建命名空间
+      - CreateNamespace=true
+      # 删除传播策略：前台删除，等待依赖资源清理完成
+      - PrunePropagationPolicy=foreground
+      # 启用 ignoreDifferences 配置
+      - RespectIgnoreDifferences=true
+      # 使用 Server Side Apply
+      - ServerSideApply=true
+
+  # 忽略副本数差异，避免与 HPA 控制冲突
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      jsonPointers:
+        # 忽略 Deployment 副本数字段
+        - /spec/replicas
+
+  # 保存最近 10 次部署历史，便于回滚与审计
+  revisionHistoryLimit: 10

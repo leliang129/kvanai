@@ -1,0 +1,29 @@
+# ArgoCD Application 资源版本
+apiVersion: argoproj.io/v1alpha1
+# 资源类型：声明一个 ArgoCD 应用
+kind: Application
+metadata:
+  # Application 名称（ArgoCD 内唯一）
+  name: directory-guestbook
+  # Application CR 必须位于 argocd 命名空间
+  namespace: argocd
+spec:
+  # 目标集群与命名空间
+  destination:
+    namespace: directory-guestbook
+    server: https://kubernetes.default.svc
+  # 归属项目（受 AppProject 权限边界约束）
+  project: default
+  # 应用来源（Git + path）
+  source:
+    path: guestbook
+    repoURL: https://jihulab.com/devops_course/argocd-example-apps.git
+    targetRevision: master
+    directory:
+      # 递归扫描子目录中的 YAML/Jsonnet 清单
+      recurse: true
+  # 同步策略
+  syncPolicy:
+    syncOptions:
+      # 目标命名空间不存在时自动创建
+      - CreateNamespace=true

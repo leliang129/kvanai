@@ -1,0 +1,29 @@
+# ArgoCD Application 资源版本
+apiVersion: argoproj.io/v1alpha1
+# 资源类型：声明一个 ArgoCD 应用
+kind: Application
+metadata:
+  # 应用名称
+  name: helm-app
+  # ArgoCD 控制面命名空间
+  namespace: argocd
+spec:
+  # 应用所属 Project
+  project: default
+  # 应用来源（Git 仓库中的 Helm 目录）
+  source:
+    path: helm-guestbook
+    repoURL: https://jihulab.com/devops_course/argocd-example-apps.git
+    targetRevision: master
+    helm:
+      # Helm release 名称（不指定时通常默认应用名）
+      releaseName: my-release
+  # 发布目标集群与命名空间
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: helm-app
+  # 同步策略
+  syncPolicy:
+    syncOptions:
+      # 目标命名空间不存在时自动创建
+      - CreateNamespace=true

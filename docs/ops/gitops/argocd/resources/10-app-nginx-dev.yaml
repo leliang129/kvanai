@@ -1,0 +1,45 @@
+# 开发环境 Application：默认手动同步，适合变更频繁阶段
+# ArgoCD Application 资源版本
+apiVersion: argoproj.io/v1alpha1
+# 资源类型：Application
+kind: Application
+metadata:
+  # 应用名称（ArgoCD 内唯一）
+  name: nginx-dev
+  # Application CR 所在命名空间（通常固定为 argocd）
+  namespace: argocd
+  finalizers:
+    # 删除 Application 时级联删除其管理的资源
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  # 绑定到前面定义的 AppProject
+  project: platform
+
+  # 发布源配置（Git）
+  source:
+    # Git 仓库地址
+    repoURL: https://github.com/your-org/ops-manifests.git
+    # 分支/Tag/Commit
+    targetRevision: main
+    # 仓库内清单路径
+    path: apps/nginx/overlays/dev
+
+  # 发布目标配置
+  destination:
+    # 目标集群 API 地址
+    server: https://kubernetes.default.svc
+    # 目标工作负载命名空间
+    namespace: dev
+
+  # 开发环境示例：只配置同步选项，不开启 automated
+  syncPolicy:
+    syncOptions:
+      # 命名空间不存在时自动创建
+      - CreateNamespace=true
+      # 删除操作放在同步末尾，避免顺序导致的依赖问题
+      - PruneLast=true
+      # 仅同步漂移资源，减少重复 apply
+      - ApplyOutOfSyncOnly=true
+
+  # 保留最近 5 次部署历史
+  revisionHistoryLimit: 5

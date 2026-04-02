@@ -1,6 +1,6 @@
 ---
 title: ArgoCD 安装部署
-sidebar_position: 2
+sidebar_position: 1
 ---
 
 本文以 Kubernetes 集群中的标准安装方式为主，覆盖 `非 HA` 与 `HA` 两种部署路径，并补充初始化登录、CLI 安装与生产环境建议，便于快速落地 ArgoCD。
@@ -19,8 +19,11 @@ sidebar_position: 2
 可先执行以下命令做基础检查：
 
 ```bash
+# 查看集群控制面是否可访问
 kubectl cluster-info
+# 查看节点就绪状态
 kubectl get nodes
+# 验证当前身份是否具备创建命名空间权限
 kubectl auth can-i create namespace
 ```
 
@@ -29,6 +32,7 @@ kubectl auth can-i create namespace
 官方默认将 ArgoCD 安装在 `argocd` 命名空间：
 
 ```bash
+# 创建 ArgoCD 安装命名空间
 kubectl create namespace argocd
 ```
 
@@ -39,6 +43,7 @@ kubectl create namespace argocd
 适合测试环境、小规模集群或初次体验。
 
 ```bash
+# 安装 ArgoCD 标准清单（非 HA）
 kubectl apply -n argocd \
   -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
@@ -46,8 +51,11 @@ kubectl apply -n argocd \
 安装完成后，建议确认核心组件状态：
 
 ```bash
+# 检查 Pod 运行状态
 kubectl get pods -n argocd
+# 检查 Service 暴露情况
 kubectl get svc -n argocd
+# 检查 Deployment 副本状态
 kubectl get deploy -n argocd
 ```
 
@@ -62,7 +70,9 @@ kubectl get deploy -n argocd
 如果 Pod 长时间未就绪，优先检查：
 
 ```bash
+# 查看 Pod 事件（调度、探针、拉镜像等）
 kubectl describe pod -n argocd <pod-name>
+# 查看 Pod 日志定位启动失败原因
 kubectl logs -n argocd <pod-name>
 ```
 
@@ -71,6 +81,7 @@ kubectl logs -n argocd <pod-name>
 如果用于生产环境，建议直接采用官方 HA 清单：
 
 ```bash
+# 安装 ArgoCD HA 清单（生产优先）
 kubectl apply -n argocd \
   -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/ha/install.yaml
 ```
@@ -90,6 +101,7 @@ HA 方案通常会对控制器、Repo Server、Redis 等组件做更适合生产
 最快的访问方式是 `port-forward`：
 
 ```bash
+# 将本地 8080 转发到 argocd-server 的 443 端口
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
@@ -121,12 +133,14 @@ ArgoCD 初始管理员用户名默认为 `admin`。
 较新的版本可直接通过以下命令读取初始密码：
 
 ```bash
+# 通过 argocd CLI 读取初始 admin 密码
 argocd admin initial-password -n argocd
 ```
 
 如果你的环境暂时没有安装 `argocd` CLI，也可以直接读取 Secret：
 
 ```bash
+# 直接读取初始密码 Secret 并 base64 解码
 kubectl -n argocd get secret argocd-initial-admin-secret \
   -o jsonpath="{.data.password}" | base64 -d && echo
 ```
@@ -138,6 +152,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret \
 ### macOS（Homebrew）
 
 ```bash
+# macOS 使用 Homebrew 安装 argocd CLI
 brew install argocd
 ```
 
@@ -148,6 +163,7 @@ brew install argocd
 安装完成后可检查版本：
 
 ```bash
+# 检查 CLI 客户端与服务端版本
 argocd version
 ```
 
@@ -156,6 +172,7 @@ argocd version
 如果使用前文的本地端口转发，可直接执行：
 
 ```bash
+# 登录本地转发后的 ArgoCD API（自签证书需 --insecure）
 argocd login localhost:8080 \
   --username admin \
   --password '<初始密码>' \
@@ -165,7 +182,9 @@ argocd login localhost:8080 \
 验证是否登录成功：
 
 ```bash
+# 查看当前登录用户信息
 argocd account get-user-info
+# 查看已注册集群列表
 argocd cluster list
 ```
 
@@ -176,12 +195,14 @@ argocd cluster list
 ### 9.1 修改管理员密码
 
 ```bash
+# 首次登录后更新 admin 密码
 argocd account update-password
 ```
 
 ### 9.2 接入 Git 仓库
 
 ```bash
+# 添加 Git 仓库到 ArgoCD（私仓需补认证参数）
 argocd repo add https://github.com/example/repo.git
 ```
 
@@ -192,6 +213,7 @@ argocd repo add https://github.com/example/repo.git
 如果 ArgoCD 管理当前集群，通常安装时已具备默认上下文；若要管理其他集群，需要额外注册：
 
 ```bash
+# 将指定 kube context 注册为可管理集群
 argocd cluster add <context-name>
 ```
 
@@ -222,6 +244,7 @@ argocd cluster add <context-name>
 如果只是实验环境需要清理，可以删除安装清单对应资源：
 
 ```bash
+# 删除标准安装清单中的资源
 kubectl delete -n argocd \
   -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
@@ -229,6 +252,7 @@ kubectl delete -n argocd \
 如需彻底清理命名空间：
 
 ```bash
+# 删除整个 argocd 命名空间（会清理所有 ArgoCD 组件）
 kubectl delete namespace argocd
 ```
 
@@ -248,6 +272,7 @@ kubectl delete namespace argocd
 先确认相关 Secret 是否存在：
 
 ```bash
+# 查看命名空间下 Secret 列表，确认初始密码 Secret 是否存在
 kubectl get secret -n argocd
 ```
 

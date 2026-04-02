@@ -1,0 +1,45 @@
+# Project + Role 完整示例：演示项目边界与角色策略
+# ArgoCD Project 资源版本
+apiVersion: argoproj.io/v1alpha1
+# 资源类型：AppProject
+kind: AppProject
+metadata:
+  # Project 名称
+  name: dev1
+  # AppProject 所在命名空间（固定为 argocd 控制面）
+  namespace: argocd
+spec:
+  # 项目说明
+  description: dev1 group
+
+  # 允许访问的 Git 仓库白名单（支持通配）
+  sourceRepos:
+    - https://jihulab.com/devops_course/**
+
+  # 允许部署目标白名单（server + namespace 必须同时匹配）
+  destinations:
+    - name: in-cluster
+      server: https://kubernetes.default.svc
+      namespace: dev1
+
+  # 集群级资源白名单（示例只允许 Namespace）
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+
+  # 命名空间级资源白名单（示例放开全部，生产建议收敛）
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+
+  # 项目角色定义
+  roles:
+    - name: dev1-role
+      # Casbin 策略：p, 主体, 资源, 动作, 对象, 允许/拒绝
+      policies:
+        # 允许读取应用
+        - p, proj:dev1:dev1-role, applications, get, dev1/*, allow
+        # 允许同步应用
+        - p, proj:dev1:dev1-role, applications, sync, dev1/*, allow
+        # 显式拒绝删除应用
+        - p, proj:dev1:dev1-role, applications, delete, dev1/*, deny
