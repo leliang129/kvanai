@@ -1,9 +1,9 @@
 ---
-sidebar_position: 13
+sidebar_position: 14
 title: 开发环境
 ---
 
-# 12 开发环境
+# 13 开发环境
 
 ## Git
 

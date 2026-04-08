@@ -1,9 +1,9 @@
 ---
-sidebar_position: 7
+sidebar_position: 8
 title: 进程与系统管理
 ---
 
-# 06 进程与系统管理
+# 07 进程与系统管理
 
 ## `ps/top/htop`
 

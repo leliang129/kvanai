@@ -1,9 +1,9 @@
 ---
-sidebar_position: 11
+sidebar_position: 12
 title: 日志与排障
 ---
 
-# 10 日志与排障
+# 11 日志与排障
 
 ## 系统日志
 

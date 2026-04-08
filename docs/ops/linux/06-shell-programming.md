@@ -1,9 +1,9 @@
 ---
-sidebar_position: 6
+sidebar_position: 7
 title: Shell 编程
 ---
 
-# 05 Shell 编程
+# 06 Shell 编程
 
 ## 基础语法
 

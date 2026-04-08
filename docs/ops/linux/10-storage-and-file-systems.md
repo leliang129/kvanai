@@ -1,9 +1,9 @@
 ---
-sidebar_position: 10
+sidebar_position: 11
 title: 存储与文件系统
 ---
 
-# 09 存储与文件系统
+# 10 存储与文件系统
 
 ## 挂载（`mount`）
 
