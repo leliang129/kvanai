@@ -164,8 +164,8 @@ const config: Config = {
             {
               type: "docSidebar",
               docsPluginId: "ops",
-              sidebarId: "prometheusSidebar",
-              label: "Prometheus",
+              sidebarId: "monitoringSidebar",
+              label: "监控系统",
             },
           ],
         },

@@ -1,0 +1,11 @@
+{
+  "label": "监控系统",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "监控系统文档索引",
+    "description": "监控体系目录与文档导航，包含 Prometheus、Alertmanager 和 Grafana。"
+  }
+}

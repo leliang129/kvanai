@@ -59,7 +59,7 @@ const domainNotes = [
     title: "Prometheus",
     meta: "metrics / alerts / promql",
     description: "告警不止“响”，还要可执行：分层、抑制、可观测闭环。",
-    link: "/ops/prometheus",
+    link: "/ops/monitoring/monitoring-architecture",
     icon: "PM",
   },
   {

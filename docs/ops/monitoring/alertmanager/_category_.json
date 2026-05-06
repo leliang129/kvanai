@@ -1,0 +1,11 @@
+{
+  "label": "Alertmanager",
+  "position": 2,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Alertmanager 文档索引",
+    "description": "Alertmanager 安装、路由、抑制、静默与通知配置。"
+  }
+}

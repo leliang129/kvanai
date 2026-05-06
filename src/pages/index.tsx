@@ -181,7 +181,7 @@ const DashboardContent = () => {
                 可观测性 (OBSERVABILITY)
               </div>
               <div style={{ paddingLeft: '30px', fontFamily: theme.mono, fontSize: '12px', display: 'flex', flexDirection: 'column', gap: '4px', opacity: 0.6 }}>
-                <Link to="/ops/prometheus" style={{ color: 'inherit' }}>&gt; Prometheus 监控 / Grafana 画板</Link>
+                <Link to="/ops/monitoring/monitoring-architecture" style={{ color: 'inherit' }}>&gt; 监控系统 / Prometheus / Grafana</Link>
               </div>
             </section>
           </div>
@@ -223,7 +223,7 @@ const DashboardContent = () => {
   );
 };
 
-export default function Home(): JSX.Element {
+export default function Home() {
   return (
     <Layout title="Kvanai · 运维工程师工作记录" noFooter={true}>
       <DashboardContent />

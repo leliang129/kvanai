@@ -1,0 +1,11 @@
+{
+  "label": "Prometheus",
+  "position": 1,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Prometheus 文档索引",
+    "description": "Prometheus 安装、采集、查询、规则、Exporter、排障与存储高可用。"
+  }
+}

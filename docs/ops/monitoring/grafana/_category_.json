@@ -1,0 +1,11 @@
+{
+  "label": "Grafana",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "generated-index",
+    "title": "Grafana 文档索引",
+    "description": "Grafana 安装、Prometheus 数据源配置与监控面板实践。"
+  }
+}

@@ -42,7 +42,7 @@ const FeatureList: FeatureItem[] = [
         Prometheus 联邦 配置，及时准备感知系统运行状况。
       </>
     ),
-    link: "/ops/prometheus",
+    link: "/ops/monitoring/monitoring-architecture",
     linkLabel: "搭建监控",
   },
   {
