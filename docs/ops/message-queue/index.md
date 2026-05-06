@@ -8,5 +8,5 @@ sidebar_position: 1
 
 ## 快速入口
 
-- [Kafka](./kafka/index.md)
+- [Kafka](./kafka/kafka-install.md)
 - [RabbitMQ](./rabbitmq/index.md)
